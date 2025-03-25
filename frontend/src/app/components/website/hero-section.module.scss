@@ -1,0 +1,136 @@
+.heroWrapper {
+    min-height: 100vh;
+}
+
+.heroSection {
+    min-height: 100vh;
+    background: radial-gradient(377.26% 97.48% at 65.93% 105.54%, rgba(1, 6, 18, 0) 0%, #010612 100%),
+        linear-gradient(180deg, rgba(5, 26, 50, 0) 47.83%, rgba(5, 27, 50, 0.2) 100%),
+        linear-gradient(0deg, #010612 2.65%, rgba(1, 6, 18, 0) 49.8%) !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.gradientText {
+    color: #3f51b5;
+    background: linear-gradient(90deg, #3f51b5 0%, #2196f3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.appButton {
+    background-color: transparent !important;
+    border: none;
+    padding: 0;
+
+    &:hover {
+        background-color: transparent !important;
+    }
+}
+
+.floatingObjectTop {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 275px;
+    height: auto;
+    z-index: 1;
+}
+
+.floatingObjectBottom {
+    position: absolute;
+    bottom: -184px;
+    left: -175px;
+    width: 310px;
+    height: 310px;
+    z-index: 1;
+}
+
+.floatingObjectRight {
+    position: absolute;
+    top: 30%;
+    right: -40%;
+    width: 137px;
+    height: 148px;
+    z-index: 1;
+}
+
+.contentWrapper {
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+}
+
+.phoneWrapper {
+    position: relative;
+    z-index: 1;
+    width: 320px;
+    height: 640px;
+
+    @media (max-width: 600px) {
+        width: 280px;
+        height: 560px;
+    }
+}
+
+.phoneMockup {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    border-radius: 40px;
+    border: 12px solid rgba(255, 255, 255, 0.05);
+    object-fit: cover;
+    box-shadow: 0 0 40px rgba(33, 150, 243, 0.2);
+}
+
+/* Using raw HTML elements instead of MUI Typography for more stable rendering */
+.heading {
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: white;
+    font-size: 4rem;
+
+    @media (max-width: 600px) {
+        font-size: 2.5rem;
+    }
+}
+
+.subheading {
+    margin-bottom: 32px !important;
+    font-weight: 400 !important;
+    color: #9e9e9e !important;
+}
+
+.getStartedButton {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    border-radius: 64px !important;
+    background: linear-gradient(90deg, #3f51b5 0%, #2196f3 100%) !important;
+    text-transform: none !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+.indiaBadge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 16px 8px !important;
+    margin-bottom: 32px !important;
+    width: 172px !important;
+    border-radius: 13px !important;
+    background-color: rgba(1, 6, 18, 0.5) !important;
+    border: 1px solid rgba(30, 150, 252, 0.3) !important;
+    box-shadow: 0 0 10px rgba(30, 150, 252, 0.1) !important;
+}
+
+.flagIcon {
+    width: 24px !important;
+    height: 16px !important;
+}
