@@ -2,7 +2,6 @@ import blogImage from "../../public/images/blogImage.png";
 import authorImage from "../../public/images/authorImage.png";
 import scan_to_dwld from "../../public/images/scan_to_dwld.png";
 
-
 export default function BlogDetail() {
     const blogData = {
         imageUrl: blogImage,
