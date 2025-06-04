@@ -3,278 +3,237 @@ import authorImage from "../../public/images/authorImage.png";
 import nutrition_logo from "../../public/images/nutrition_logo.png";
 import suggestion_spark from "../../public/images/suggestion_spark.png";
 
-export default function PersonalizedDietPlanResults() {
+export default function PersonalizedDietPlanResults({ isPersonalizedDietPlan = false, setIsPersonalizedDietPlan }) {
     return (
         <>
-            <section className="dashboard-container">
-                <div className="dashboard-left">
-                    <div className="img-div">
-                        <img src={dash_logo?.src} alt="Dashboard Logo" />
-                    </div>
-                    <div className="dashboard-menu">
-                        <ul className="menu-list">
-                            <li className="menu-item"><a className="sub-menu-link" href="#"><img src="" alt="" /> Dashboard</a></li>
-                            <li className="menu-item"><a className="sub-menu-link" href="#"><img src="" alt="" /> Future Fit</a>
-                                <ul className="sub-menu-dropdown">
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                                </ul>
-                            </li>
-                            <li className="menu-item"><a className="sub-menu-link" href="#"> <img src="" alt="" /> Future Fit</a>
-                                <ul className="sub-menu-dropdown">
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                                </ul>
-                            </li>
-                            <li className="menu-item"><a className="sub-menu-link" href="#"> <img src="" alt="" />Future Fit</a>
-                                <ul className="sub-menu-dropdown">
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="manage-profile">
-                        <div className="profile-avatar">
-                            <img src={authorImage?.src} alt="Profile Avatar" />
+
+            <div className="dashboard-right">
+                <div className="breadcrumb">
+                    <ul className="breadcrumb-list">
+                        <li className="breadcrumb-item"><a href="#">Fitness</a></li>
+                        <li className="breadcrumb-item"><a href="#">Diet Plan</a></li>
+                        <li className="breadcrumb-item active"><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                {/* diet-metrics */}
+                <div className="diet-metrics">
+                    <div className="metrics-left">
+                        <div className="daily-nutrition-sum">
+                            <p className="nutrition-desc">Daily Nutrition Summary</p>
+                            <h3 className="nutrition-data">
+                                <img src={nutrition_logo?.src} alt="" className="nutrition-logo" />
+                                1890 Kcal
+                            </h3>
                         </div>
-                        <div className="profile-details">
-                            <h3>John Doe</h3>
-                            <a href="#" className="profile-link">Manage Profile</a>
+                        <div className="daily-nutrition-types">
+                            <div className="nutrition-type">
+                                <p className="nutrition-name">Protien</p>
+                                <p className="nutriton-wt">145g</p>
+                            </div>
+                            <div className="nutrition-type">
+                                <p className="nutrition-name">Protien</p>
+                                <p className="nutriton-wt">145g</p>
+                            </div>
+                            <div className="nutrition-type">
+                                <p className="nutrition-name">Protien</p>
+                                <p className="nutriton-wt">145g</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div className="metrics-right">
+                        <p className="cal-desc">Calories Distribution</p>
+                        <div className="cal-distribution">
+                            <div className="cal-item">
+                                <p className="cal-value">~500 Kcal</p>
+                                <div className="cal-name-data">
+                                    <p className="cal-name">Breakfast</p>
+                                    <p className="cal-per">14%</p>
+                                </div>
+                            </div>
+                            <div className="cal-item">
+                                <p className="cal-value">~500 Kcal</p>
+                                <div className="cal-name-data">
+                                    <p className="cal-name">Breakfast</p>
+                                    <p className="cal-per">14%</p>
+                                </div>
+                            </div>
+                            <div className="cal-item">
+                                <p className="cal-value">~500 Kcal</p>
+                                <div className="cal-name-data">
+                                    <p className="cal-name">Breakfast</p>
+                                    <p className="cal-per">14%</p>
+                                </div>
+                            </div>
+                            <div className="cal-item">
+                                <p className="cal-value">~500 Kcal</p>
+                                <div className="cal-name-data">
+                                    <p className="cal-name">Breakfast</p>
+                                    <p className="cal-per">14%</p>
+                                </div>
+                            </div>
+                            <div className="cal-item">
+                                <p className="cal-value">~500 Kcal</p>
+                                <div className="cal-name-data">
+                                    <p className="cal-name">Breakfast</p>
+                                    <p className="cal-per">14%</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div className="dashboard-right">
-                    <div className="breadcrumb">
-                        <ul className="breadcrumb-list">
-                            <li className="breadcrumb-item"><a href="#">Fitness</a></li>
-                            <li className="breadcrumb-item"><a href="#">Diet Plan</a></li>
-                            <li className="breadcrumb-item active"><a href="#">Results</a></li>
+                {/* personalized-diet plan */}
+                <div className="personalized-diet">
+                    <h4>Personalized Diet Plan</h4>
+                    <ul className="diet-timing-list">
+                        <li className="diet-time">Breakfast <span>8AM</span></li>
+                        <li className="diet-time">Lunch <span>1PM</span></li>
+                        <li className="diet-time">Dinner <span>9PM</span></li>
+                        <li className="diet-time">Snacks</li>
+                    </ul>
+                    <div className="diet-details">
+
+                        <ul className="diet-items-list">
+                            <li className="diet-item diet-sch bf-h-green">
+                                <h4>Breakfast</h4>
+                                <p>7:00 - 8:00 AM</p>
+                            </li>
+                            <li className="diet-item bf-green">
+                                <div className="diet-name">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+                            <li className="diet-item bf-green">
+                                <div className="diet-name">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+                            <li className="diet-item bf-green">
+                                <div className="diet-name">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <ul className="diet-items-list">
+                            <li className="diet-item diet-sch l-h-red">
+                                <h4>Lunch</h4>
+                                <p>7:00 - 8:00 AM</p>
+                            </li>
+                            <li className="diet-item l-red">
+                                <div className="diet-name ">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+                            <li className="diet-item l-red">
+                                <div className="diet-name">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+                            <li className="diet-item l-red">
+                                <div className="diet-name">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <ul className="diet-items-list">
+                            <li className="diet-item diet-sch d-h-blue">
+                                <h4>Dinner</h4>
+                                <p>7:00 - 8:00 AM</p>
+                            </li>
+                            <li className="diet-item d-blue">
+                                <div className="diet-name">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+                            <li className="diet-item d-blue">
+                                <div className="diet-name">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+                            <li className="diet-item d-blue">
+                                <div className="diet-name">
+                                    <h4>Oatmeal with berries</h4>
+                                    <p>1 cup of oats, mixed berries</p>
+                                </div>
+                                <div className="diet-energy">
+                                    <p>320 Kcal</p>
+                                    <p>Protein:30g</p>
+                                </div>
+                            </li>
+
                         </ul>
                     </div>
-                    {/* diet-metrics */}
-                    <div className="diet-metrics">
-                        <div className="metrics-left">
-                            <div className="daily-nutrition-sum">
-                                <p className="nutrition-desc">Daily Nutrition Summary</p>
-                                <h3 className="nutrition-data">
-                                    <img src={nutrition_logo?.src} alt="" className="nutrition-logo" />
-                                    1890 Kcal
-                                </h3>
-                            </div>
-                            <div className="daily-nutrition-types">
-                                <div className="nutrition-type">
-                                    <p className="nutrition-name">Protien</p>
-                                    <p className="nutriton-wt">145g</p>
-                                </div>
-                                <div className="nutrition-type">
-                                    <p className="nutrition-name">Protien</p>
-                                    <p className="nutriton-wt">145g</p>
-                                </div>
-                                <div className="nutrition-type">
-                                    <p className="nutrition-name">Protien</p>
-                                    <p className="nutriton-wt">145g</p>
-                                </div>
 
-
-                            </div>
-                        </div>
-                        <div className="metrics-right">
-                            <p className="cal-desc">Calories Distribution</p>
-                            <div className="cal-distribution">
-                                <div className="cal-item">
-                                    <p className="cal-value">~500 Kcal</p>
-                                    <div className="cal-name-data">
-                                        <p className="cal-name">Breakfast</p>
-                                        <p className="cal-per">14%</p>
-                                    </div>
-                                </div>
-                                <div className="cal-item">
-                                    <p className="cal-value">~500 Kcal</p>
-                                    <div className="cal-name-data">
-                                        <p className="cal-name">Breakfast</p>
-                                        <p className="cal-per">14%</p>
-                                    </div>
-                                </div>
-                                <div className="cal-item">
-                                    <p className="cal-value">~500 Kcal</p>
-                                    <div className="cal-name-data">
-                                        <p className="cal-name">Breakfast</p>
-                                        <p className="cal-per">14%</p>
-                                    </div>
-                                </div>
-                                <div className="cal-item">
-                                    <p className="cal-value">~500 Kcal</p>
-                                    <div className="cal-name-data">
-                                        <p className="cal-name">Breakfast</p>
-                                        <p className="cal-per">14%</p>
-                                    </div>
-                                </div>
-                                <div className="cal-item">
-                                    <p className="cal-value">~500 Kcal</p>
-                                    <div className="cal-name-data">
-                                        <p className="cal-name">Breakfast</p>
-                                        <p className="cal-per">14%</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                </div>
+                <div className="suggestion-container">
+                    <div className="sugg-top">
+                        <img src={suggestion_spark?.src} alt="" className="sugg-log" />
+                        <h3>Suggestions</h3>
                     </div>
-                    {/* personalized-diet plan */}
-                    <div className="personalized-diet">
-                        <h4>Personalized Diet Plan</h4>
-                        <ul className="diet-timing-list">
-                            <li className="diet-time">Breakfast <span>8AM</span></li>
-                            <li className="diet-time">Lunch <span>1PM</span></li>
-                            <li className="diet-time">Dinner <span>9PM</span></li>
-                            <li className="diet-time">Snacks</li>
+
+                    <div className="suggestion-list">
+                        <ul className="suggestion-items">
+                            <li className="suggestion-item">
+                                <h3>Protien Sources</h3>
+                                <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                            </li>
+                            <li className="suggestion-item">
+                                <h3>Protien Sources</h3>
+                                <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                            </li>
+                            <li className="suggestion-item">
+                                <h3>Protien Sources</h3>
+                                <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                            </li>
                         </ul>
-                        <div className="diet-details">
-
-                            <ul className="diet-items-list">
-                                <li className="diet-item diet-sch bf-h-green">
-                                    <h4>Breakfast</h4>
-                                    <p>7:00 - 8:00 AM</p>
-                                </li>
-                                <li className="diet-item bf-green">
-                                    <div className="diet-name">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-                                <li className="diet-item bf-green">
-                                    <div className="diet-name">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-                                <li className="diet-item bf-green">
-                                    <div className="diet-name">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <ul className="diet-items-list">
-                                <li className="diet-item diet-sch l-h-red">
-                                    <h4>Lunch</h4>
-                                    <p>7:00 - 8:00 AM</p>
-                                </li>
-                                <li className="diet-item l-red">
-                                    <div className="diet-name ">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-                                <li className="diet-item l-red">
-                                    <div className="diet-name">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-                                <li className="diet-item l-red">
-                                    <div className="diet-name">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <ul className="diet-items-list">
-                                <li className="diet-item diet-sch d-h-blue">
-                                    <h4>Dinner</h4>
-                                    <p>7:00 - 8:00 AM</p>
-                                </li>
-                                <li className="diet-item d-blue">
-                                    <div className="diet-name">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-                                <li className="diet-item d-blue">
-                                    <div className="diet-name">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-                                <li className="diet-item d-blue">
-                                    <div className="diet-name">
-                                        <h4>Oatmeal with berries</h4>
-                                        <p>1 cup of oats, mixed berries</p>
-                                    </div>
-                                    <div className="diet-energy">
-                                        <p>320 Kcal</p>
-                                        <p>Protein:30g</p>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div className="suggestion-container">
-                        <div className="sugg-top">
-                            <img src={suggestion_spark?.src} alt="" className="sugg-log" />
-                            <h3>Suggestions</h3>
-                        </div>
-
-                        <div className="suggestion-list">
-                            <ul className="suggestion-items">
-                                <li className="suggestion-item">
-                                    <h3>Protien Sources</h3>
-                                    <p>Increase your protein intake by adding more lean meats and legumes.</p>
-                                </li>
-                                <li className="suggestion-item">
-                                    <h3>Protien Sources</h3>
-                                    <p>Increase your protein intake by adding more lean meats and legumes.</p>
-                                </li>
-                                <li className="suggestion-item">
-                                    <h3>Protien Sources</h3>
-                                    <p>Increase your protein intake by adding more lean meats and legumes.</p>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
+            </div>
 
-            </section>
             <style jsx>{`
             .dashboard-container {
                 display: flex;

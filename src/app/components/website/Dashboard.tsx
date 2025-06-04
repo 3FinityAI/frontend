@@ -2,10 +2,10 @@ import dash_logo from "../../public/images/dash_logo.png";
 import authorImage from "../../public/images/authorImage.png";
 
 import FitnessGoalForm from "./FitnessGoalForm";
-export default function Dashboard() {
+export default function Dashboard({setIsWorkoutPlan, setIsPersonalizedDietPlan, }) {
     return (
 <>
-        <section className="dashboard-container">
+        {/* <section className="dashboard-container">
             <div className="dashboard-left">
                 <div className="img-div">
                     <img src={dash_logo?.src} alt="Dashboard Logo" />
@@ -45,7 +45,7 @@ export default function Dashboard() {
                         <a href="#" className="profile-link">Manage Profile</a>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="dashboard-right">
                 <div className="breadcrumb">
                     <ul className="breadcrumb-list">
@@ -53,10 +53,11 @@ export default function Dashboard() {
                         <li className="breadcrumb-item active"><a href="#">Diet Plan</a></li>
                     </ul>
                 </div>
-                <FitnessGoalForm />
-            </div>
+                <FitnessGoalForm setIsWorkoutPlan={setIsWorkoutPlan} setIsPersonalizedDietPlan={setIsPersonalizedDietPlan}/>
+                </div>
+            {/* </div>
 
-        </section>
+        </section> */}
         <style jsx>{`
             .dashboard-container {
                 display: flex;
