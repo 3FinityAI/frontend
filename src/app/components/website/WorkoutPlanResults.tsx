@@ -1,233 +1,191 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import dash_logo from "../../public/images/dash_logo.png";
 import authorImage from "../../public/images/authorImage.png";
 import plIcon from "../../public/images/pl-icon.png"
 import suggestion_spark from "../../public/images/suggestion_spark.png";
 import VideoModal from "./VideoModal";
 
-export default function WorkoutPlanResults() {
+export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPlan}) {
     const [isOpen, setIsOpen] = useState(false);
-    const handleOpen = ()=> {
+    const handleOpen = () => {
         setIsOpen(true);
     }
-    const handleClose = ()=> {
+    const handleClose = () => {
         setIsOpen(false);
     }
     return (
         <>
-            {isOpen && <VideoModal handleClose={handleClose}/>}
-            <section className="dashboard-container">
-                <div className="dashboard-left">
-                    <div className="img-div">
-                        <img src={dash_logo?.src} alt="Dashboard Logo" />
-                    </div>
-                    <div className="dashboard-menu">
-                        <ul className="menu-list">
-                            <li className="menu-item"><a className="sub-menu-link" href="#"><img src="" alt="" /> Dashboard</a></li>
-                            <li className="menu-item"><a className="sub-menu-link" href="#"><img src="" alt="" /> Future Fit</a>
-                                <ul className="sub-menu-dropdown">
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                                </ul>
-                            </li>
-                            <li className="menu-item"><a className="sub-menu-link" href="#"> <img src="" alt="" /> Future Fit</a>
-                                <ul className="sub-menu-dropdown">
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                                </ul>
-                            </li>
-                            <li className="menu-item"><a className="sub-menu-link" href="#"> <img src="" alt="" />Future Fit</a>
-                                <ul className="sub-menu-dropdown">
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                    <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="manage-profile">
-                        <div className="profile-avatar">
-                            <img src={authorImage?.src} alt="Profile Avatar" />
-                        </div>
-                        <div className="profile-details">
-                            <h3>John Doe</h3>
-                            <a href="#" className="profile-link">Manage Profile</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="dashboard-right">
-                    <div className="breadcrumb">
-                        <ul className="breadcrumb-list">
-                            <li className="breadcrumb-item"><a href="#">Fitness</a></li>
-                            <li className="breadcrumb-item"><a href="#">Diet Plan</a></li>
-                            <li className="breadcrumb-item active"><a href="#">Results</a></li>
-                        </ul>
-                    </div>
-                    {/* result comp start */}
+            {isOpen && <VideoModal handleClose={handleClose} />}
 
-                    <div className="results-container">
-                        <div className="days-container">
-                            <ul className="days-list">
-                                <li className="days-item">
-                                    <h3><strong>DAY 1</strong><span>Legs</span></h3>
-                                </li>
-                                <li className="days-item">
-                                    <h3><strong>DAY 1</strong><span>Legs</span></h3>
-                                </li>
-                                <li className="days-item">
-                                    <h3><strong>DAY 1</strong><span>Legs</span></h3>
-                                </li>
-                                <li className="days-item active">
-                                    <h3><strong>DAY 1</strong><span>Legs</span></h3>
-                                </li>
-                            </ul>
+            <div className="dashboard-right">
+                <div className="breadcrumb">
+                    <ul className="breadcrumb-list">
+                        <li className="breadcrumb-item"><a href="#">Fitness</a></li>
+                        <li className="breadcrumb-item"><a href="#">Diet Plan</a></li>
+                        <li className="breadcrumb-item active"><a href="#">Results</a></li>
+                    </ul>
+                </div>
+                {/* result comp start */}
+
+                <div className="results-container">
+                    <div className="days-container">
+                        <ul className="days-list">
+                            <li className="days-item">
+                                <h3><strong>DAY 1</strong><span>Legs</span></h3>
+                            </li>
+                            <li className="days-item">
+                                <h3><strong>DAY 1</strong><span>Legs</span></h3>
+                            </li>
+                            <li className="days-item">
+                                <h3><strong>DAY 1</strong><span>Legs</span></h3>
+                            </li>
+                            <li className="days-item active">
+                                <h3><strong>DAY 1</strong><span>Legs</span></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="days-schedule-container">
+                        <div className="day-sch-top">
+                            <p className="day-sch">Day 2 Schedule</p>
+                            <p className="ex-names">Chest, Shoulders, Triceps</p>
                         </div>
-                        <div className="days-schedule-container">
-                            <div className="day-sch-top">
-                                <p className="day-sch">Day 2 Schedule</p>
-                                <p className="ex-names">Chest, Shoulders, Triceps</p>
-                            </div>
-                            <div className="machine-sets">
-                                <ul className="sets-list">
+                        <div className="machine-sets">
+                            <ul className="sets-list">
                                 <li className="sets-item">
-                                        <div className="sets-wp">
+                                    <div className="sets-wp">
                                         <div className="set-name-vid">
                                             <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt=""  className="pl-icon"/>Play video</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
                                         </div>
                                         <div className="set-cnt-rep">
                                             <p className="set-cnt"><strong>3 sets</strong></p>
                                             <p className="set-rep">Reps: <strong>10-12</strong></p>
                                         </div>
-                                        </div>
-                                        <div className="rest-time">
-                                            Rest: <strong>60-90secs</strong>
-                                        </div>
-                                    </li>
-                                    <li className="sets-item">
-                                        <div className="sets-wp">
-                                        <div className="set-name-vid">
-                                            <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt=""  className="pl-icon"/>Play video</p>
-                                        </div>
-                                        <div className="set-cnt-rep">
-                                            <p className="set-cnt"><strong>3 sets</strong></p>
-                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
-                                        </div>
-                                        </div>
-                                        <div className="rest-time">
-                                            Rest: <strong>60-90secs</strong>
-                                        </div>
-                                    </li>
-                                    <li className="sets-item">
-                                        <div className="sets-wp">
-                                        <div className="set-name-vid">
-                                            <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt=""  className="pl-icon"/>Play video</p>
-                                        </div>
-                                        <div className="set-cnt-rep">
-                                            <p className="set-cnt"><strong>3 sets</strong></p>
-                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
-                                        </div>
-                                        </div>
-                                        <div className="rest-time">
-                                            Rest: <strong>60-90secs</strong>
-                                        </div>
-                                    </li>
-                                    <li className="sets-item">
-                                        <div className="sets-wp">
-                                        <div className="set-name-vid">
-                                            <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt=""  className="pl-icon"/>Play video</p>
-                                        </div>
-                                        <div className="set-cnt-rep">
-                                            <p className="set-cnt"><strong>3 sets</strong></p>
-                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
-                                        </div>
-                                        </div>
-                                        <div className="rest-time">
-                                            Rest: <strong>60-90secs</strong>
-                                        </div>
-                                    </li>
-                                    <li className="sets-item">
-                                        <div className="sets-wp">
-                                        <div className="set-name-vid">
-                                            <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt=""  className="pl-icon"/>Play video</p>
-                                        </div>
-                                        <div className="set-cnt-rep">
-                                            <p className="set-cnt"><strong>3 sets</strong></p>
-                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
-                                        </div>
-                                        </div>
-                                        <div className="rest-time">
-                                            Rest: <strong>60-90secs</strong>
-                                        </div>
-                                    </li>
-                                    <li className="sets-item">
-                                        <div className="sets-wp">
-                                        <div className="set-name-vid">
-                                            <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt=""  className="pl-icon"/>Play video</p>
-                                        </div>
-                                        <div className="set-cnt-rep">
-                                            <p className="set-cnt"><strong>3 sets</strong></p>
-                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
-                                        </div>
-                                        </div>
-                                        <div className="rest-time">
-                                            Rest: <strong>60-90secs</strong>
-                                        </div>
-                                    </li>
-                                    <li className="sets-item">
-                                        <div className="sets-wp">
-                                        <div className="set-name-vid">
-                                            <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt=""  className="pl-icon"/>Play video</p>
-                                        </div>
-                                        <div className="set-cnt-rep">
-                                            <p className="set-cnt"><strong>3 sets</strong></p>
-                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
-                                        </div>
-                                        </div>
-                                        <div className="rest-time">
-                                            Rest: <strong>60-90secs</strong>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* result comp end */}
-                    <div className="suggestion-container">
-                        <div className="sugg-top">
-                            <img src={suggestion_spark?.src} alt="" className="sugg-log" />
-                            <h3>Suggestions</h3>
-                        </div>
-
-                        <div className="suggestion-list">
-                            <ul className="suggestion-items">
-                                <li className="suggestion-item">
-                                    <h3>Protien Sources</h3>
-                                    <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                                    </div>
+                                    <div className="rest-time">
+                                        Rest: <strong>60-90secs</strong>
+                                    </div>
                                 </li>
-                                <li className="suggestion-item">
-                                    <h3>Protien Sources</h3>
-                                    <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                                <li className="sets-item">
+                                    <div className="sets-wp">
+                                        <div className="set-name-vid">
+                                            <p className="set-name">Barbell Bench Press</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                        </div>
+                                        <div className="set-cnt-rep">
+                                            <p className="set-cnt"><strong>3 sets</strong></p>
+                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="rest-time">
+                                        Rest: <strong>60-90secs</strong>
+                                    </div>
                                 </li>
-                                <li className="suggestion-item">
-                                    <h3>Protien Sources</h3>
-                                    <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                                <li className="sets-item">
+                                    <div className="sets-wp">
+                                        <div className="set-name-vid">
+                                            <p className="set-name">Barbell Bench Press</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                        </div>
+                                        <div className="set-cnt-rep">
+                                            <p className="set-cnt"><strong>3 sets</strong></p>
+                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="rest-time">
+                                        Rest: <strong>60-90secs</strong>
+                                    </div>
+                                </li>
+                                <li className="sets-item">
+                                    <div className="sets-wp">
+                                        <div className="set-name-vid">
+                                            <p className="set-name">Barbell Bench Press</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                        </div>
+                                        <div className="set-cnt-rep">
+                                            <p className="set-cnt"><strong>3 sets</strong></p>
+                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="rest-time">
+                                        Rest: <strong>60-90secs</strong>
+                                    </div>
+                                </li>
+                                <li className="sets-item">
+                                    <div className="sets-wp">
+                                        <div className="set-name-vid">
+                                            <p className="set-name">Barbell Bench Press</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                        </div>
+                                        <div className="set-cnt-rep">
+                                            <p className="set-cnt"><strong>3 sets</strong></p>
+                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="rest-time">
+                                        Rest: <strong>60-90secs</strong>
+                                    </div>
+                                </li>
+                                <li className="sets-item">
+                                    <div className="sets-wp">
+                                        <div className="set-name-vid">
+                                            <p className="set-name">Barbell Bench Press</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                        </div>
+                                        <div className="set-cnt-rep">
+                                            <p className="set-cnt"><strong>3 sets</strong></p>
+                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="rest-time">
+                                        Rest: <strong>60-90secs</strong>
+                                    </div>
+                                </li>
+                                <li className="sets-item">
+                                    <div className="sets-wp">
+                                        <div className="set-name-vid">
+                                            <p className="set-name">Barbell Bench Press</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                        </div>
+                                        <div className="set-cnt-rep">
+                                            <p className="set-cnt"><strong>3 sets</strong></p>
+                                            <p className="set-rep">Reps: <strong>10-12</strong></p>
+                                        </div>
+                                    </div>
+                                    <div className="rest-time">
+                                        Rest: <strong>60-90secs</strong>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-            </section>
+                {/* result comp end */}
+                <div className="suggestion-container">
+                    <div className="sugg-top">
+                        <img src={suggestion_spark?.src} alt="" className="sugg-log" />
+                        <h3>Suggestions</h3>
+                    </div>
+
+                    <div className="suggestion-list">
+                        <ul className="suggestion-items">
+                            <li className="suggestion-item">
+                                <h3>Protien Sources</h3>
+                                <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                            </li>
+                            <li className="suggestion-item">
+                                <h3>Protien Sources</h3>
+                                <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                            </li>
+                            <li className="suggestion-item">
+                                <h3>Protien Sources</h3>
+                                <p>Increase your protein intake by adding more lean meats and legumes.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <style jsx>{`
             * {margin: 0;
             padding: 0;}
@@ -404,7 +362,7 @@ export default function WorkoutPlanResults() {
                 color: #666;
             }
         `}</style>
-        <style jsx>{`
+            <style jsx>{`
         .results-container {
         margin: 20px;
         padding: 20px;
