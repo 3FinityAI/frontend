@@ -7,7 +7,7 @@ export default function VideoModal({handleClose}) {
             <div className="modal-content">
                 <span className="close" onClick={handleClose}>&times;</span>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam, harum?</p>
-                <img className="md-img" src={blogImage.src} alt="" />
+                <img className="md-img" src={"/images/blogImage.png"} alt="" />
             </div>
             <style jsx> {`
             .modal {display: block;

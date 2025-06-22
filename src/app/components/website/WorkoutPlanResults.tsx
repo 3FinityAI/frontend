@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import dash_logo from "../../public/images/dash_logo.png";
-import authorImage from "../../public/images/authorImage.png";
-import plIcon from "../../public/images/pl-icon.png"
-import suggestion_spark from "../../public/images/suggestion_spark.png";
 import VideoModal from "./VideoModal";
 
 export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPlan}) {
@@ -55,7 +51,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                                     <div className="sets-wp">
                                         <div className="set-name-vid">
                                             <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={"/images/pl-icon.png"} alt="" className="pl-icon" />Play video</p>
                                         </div>
                                         <div className="set-cnt-rep">
                                             <p className="set-cnt"><strong>3 sets</strong></p>
@@ -70,7 +66,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                                     <div className="sets-wp">
                                         <div className="set-name-vid">
                                             <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={"/images/pl-icon.png"} alt="" className="pl-icon" />Play video</p>
                                         </div>
                                         <div className="set-cnt-rep">
                                             <p className="set-cnt"><strong>3 sets</strong></p>
@@ -85,7 +81,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                                     <div className="sets-wp">
                                         <div className="set-name-vid">
                                             <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={"/images/pl-icon.png"} alt="" className="pl-icon" />Play video</p>
                                         </div>
                                         <div className="set-cnt-rep">
                                             <p className="set-cnt"><strong>3 sets</strong></p>
@@ -100,7 +96,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                                     <div className="sets-wp">
                                         <div className="set-name-vid">
                                             <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={"/images/pl-icon.png"} alt="" className="pl-icon" />Play video</p>
                                         </div>
                                         <div className="set-cnt-rep">
                                             <p className="set-cnt"><strong>3 sets</strong></p>
@@ -115,7 +111,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                                     <div className="sets-wp">
                                         <div className="set-name-vid">
                                             <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={"/images/pl-icon.png"} alt="" className="pl-icon" />Play video</p>
                                         </div>
                                         <div className="set-cnt-rep">
                                             <p className="set-cnt"><strong>3 sets</strong></p>
@@ -130,7 +126,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                                     <div className="sets-wp">
                                         <div className="set-name-vid">
                                             <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={"/images/pl-icon.png"} alt="" className="pl-icon" />Play video</p>
                                         </div>
                                         <div className="set-cnt-rep">
                                             <p className="set-cnt"><strong>3 sets</strong></p>
@@ -145,7 +141,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                                     <div className="sets-wp">
                                         <div className="set-name-vid">
                                             <p className="set-name">Barbell Bench Press</p>
-                                            <p className="set-vid" onClick={handleOpen}><img src={plIcon.src} alt="" className="pl-icon" />Play video</p>
+                                            <p className="set-vid" onClick={handleOpen}><img src={"/images/pl-icon.png"} alt="" className="pl-icon" />Play video</p>
                                         </div>
                                         <div className="set-cnt-rep">
                                             <p className="set-cnt"><strong>3 sets</strong></p>
@@ -164,7 +160,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                 {/* result comp end */}
                 <div className="suggestion-container">
                     <div className="sugg-top">
-                        <img src={suggestion_spark?.src} alt="" className="sugg-log" />
+                        <img src={"/images/suggestion_spark.png"} alt="" className="sugg-log" />
                         <h3>Suggestions</h3>
                     </div>
 
@@ -203,7 +199,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                 background-color: #ccc;
                 height: 100vh;
                 padding: 20px;
-                border-right: 1px solid #ddd;
+                // border-right: 1px solid #ddd;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -214,8 +210,10 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
             }
                 .dashboard-right {
                 width: 80%;
+                height: 100vh;
                 padding: 20px;
                 background-color: #fff;
+                overflow: auto;
                 
             }
                 .img-div img {
@@ -279,6 +277,7 @@ export default function WorkoutPlanResults({isWorkoutPlan=false, setIsWorkoutPla
                 .breadcrumb-list {
                 list-style: none;
                 padding: 0;
+                margin-top: 36px;
             }
                 .breadcrumb-item {
                 display: inline;

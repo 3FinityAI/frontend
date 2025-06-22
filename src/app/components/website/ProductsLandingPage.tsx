@@ -14,7 +14,7 @@ export default function ProductsLandingPage() {
             <div className="products-lists">
                 <div className="product-item">
                     <a href="products/fitness" className='product-link'>
-                    <img className="product-img" src={fitnesslogo?.src} alt="" />
+                    <img className="product-img" src={"/images/fitness-logo.png"} alt="" />
                     <h4 className="product-title">Future <span>Fit</span></h4>
                     <p className="product-desc">Discover our Future Fit products designed to enhance your fitness journey.</p>
                     <button className="product-button">Explore</button>
@@ -22,7 +22,7 @@ export default function ProductsLandingPage() {
                 </div>
                 <div className="product-item">
                      <a href="products/fashion" className='product-link'>
-                    <img className="product-img" src={fashionlogo?.src} alt="" />
+                    <img className="product-img" src={"/images/fashion-logo.png"} alt="" />
                     <h4 className="product-title">Future <span>Fit</span></h4>
                     <p className="product-desc">Discover our Future Fit products designed to enhance your fitness journey.</p>
                     <button className="product-button">Explore</button>
@@ -30,7 +30,7 @@ export default function ProductsLandingPage() {
                 </div>
                 <div className="product-item">
                     <a href="products/finance" className='product-link'>
-                    <img className="product-img" src={financelogo?.src} alt="" />
+                    <img className="product-img" src={"/images/finance-logo.png"} alt="" />
                     <h4 className="product-title">Future <span>Fit</span></h4>
                     <p className="product-desc">Discover our Future Fit products designed to enhance your fitness journey.</p>
                     <button className="product-button">Explore</button>

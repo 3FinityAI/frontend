@@ -247,7 +247,7 @@ export default function PersonalizedDietPlanResults({ isPersonalizedDietPlan = f
                 background-color: #ccc;
                 height: 100vh;
                 padding: 20px;
-                border-right: 1px solid #ddd;
+                // border-right: 1px solid #ddd;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -258,8 +258,10 @@ export default function PersonalizedDietPlanResults({ isPersonalizedDietPlan = f
             }
                 .dashboard-right {
                 width: 80%;
+                height: 100vh;
                 padding: 20px;
                 background-color: #fff;
+                overflow: auto;
                 
             }
                 .img-div img {
@@ -323,6 +325,7 @@ export default function PersonalizedDietPlanResults({ isPersonalizedDietPlan = f
                 .breadcrumb-list {
                 list-style: none;
                 padding: 0;
+                margin-top: 36px;
             }
                 .breadcrumb-item {
                 display: inline;

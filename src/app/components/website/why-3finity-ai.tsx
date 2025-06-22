@@ -3,24 +3,21 @@
 import React from "react";
 import { Box, Typography, Container, Grid } from "@mui/material";
 import styles from "./why-3finity-ai.module.scss";
-import AllInOneSolutionPng from "../../public/images/all-in-one-solution.png";
-import AiThatUnderstandsYouPng from "../../public/images/ai-that-understands-you.png";
-import StayAheadWithAiPng from "../../public/images/stay-ahead-with-ai.png";
 
 const Why3finityAi = () => {
   const features = [
     {
-      image: AllInOneSolutionPng,
+      image: "/images/all-in-one-solution.png",
       title: "All-in-One Solution",
       description: "Manage your fitness, investments, and style in one places",
     },
     {
-      image: AiThatUnderstandsYouPng,
+      image: "/images/ai-that-understands-you.png",
       title: "AI That Understands You",
       description: "Smart insights tailored to your needs.",
     },
     {
-      image: StayAheadWithAiPng,
+      image: "/images/stay-ahead-with-ai.png",
       title: "Stay Ahead with AI",
       description: "Get the latest trends, strategies, and plans",
     },
@@ -47,7 +44,7 @@ const Why3finityAi = () => {
               <Box className={styles.featureContainer}>
                 <Box className={styles.iconContainer}>
                   <img
-                    src={feature.image.src}
+                    src={feature.image}
                     width={72}
                     height={72}
                     alt={feature.title}

@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/blogs/[slug]"  ],
+, "src/app/blogs/[slug]", "src/app/components/finance/DoughnutChart.js"  ],
   "exclude": [
     "node_modules"
   ]

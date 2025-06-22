@@ -5,7 +5,7 @@ import PersonalizedDietPlanResults from "../../components/website/PersonalizedDi
 import WorkoutPlanResults from "../../components/website/WorkoutPlanResults";
 
 
-function PersonalizedDietPlanResultsPage() {
+function FitnessPage() {
 
   const [isWorkoutPlan, setIsWorkoutPlan] = useState(false);
   const [isPersonalizedDietPlan, setIsPersonalizedDietPlan] = useState(false);
@@ -22,5 +22,5 @@ function PersonalizedDietPlanResultsPage() {
   );
 }
 
-export default PersonalizedDietPlanResultsPage;
+export default FitnessPage;
 

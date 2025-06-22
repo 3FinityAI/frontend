@@ -1,51 +1,9 @@
-import dash_logo from "../../public/images/dash_logo.png";
-import authorImage from "../../public/images/authorImage.png";
-
 import FitnessGoalForm from "./FitnessGoalForm";
-export default function Dashboard({setIsWorkoutPlan, setIsPersonalizedDietPlan, }) {
+
+export default function Dashboard({ setIsWorkoutPlan, setIsPersonalizedDietPlan, }) {
+
     return (
-<>
-        {/* <section className="dashboard-container">
-            <div className="dashboard-left">
-                <div className="img-div">
-                    <img src={dash_logo?.src} alt="Dashboard Logo" />
-                </div>
-                <div className="dashboard-menu">
-                    <ul className="menu-list">
-                        <li className="menu-item"><a className="sub-menu-link" href="#"><img src="" alt="" /> Dashboard</a></li>
-                        <li className="menu-item"><a className="sub-menu-link" href="#"><img src="" alt="" /> Future Fit</a>
-                            <ul className="sub-menu-dropdown">
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                            </ul>
-                        </li>
-                        <li className="menu-item"><a className="sub-menu-link" href="#"> <img src="" alt="" /> Future Fit</a>
-                            <ul className="sub-menu-dropdown">
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                            </ul>
-                        </li>
-                        <li className="menu-item"><a className="sub-menu-link" href="#"> <img src="" alt="" />Future Fit</a>
-                            <ul className="sub-menu-dropdown">
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 1</a></li>
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 2</a></li>
-                                <li className="sub-menu-item"><a className="sub-menu-link" href="#">Future Fit 3</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div className="manage-profile">
-                    <div className="profile-avatar">
-                        <img src={authorImage?.src} alt="Profile Avatar" />
-                    </div>
-                    <div className="profile-details">
-                        <h3>John Doe</h3>
-                        <a href="#" className="profile-link">Manage Profile</a>
-                    </div>
-                </div>
-            </div> */}
+        <>
             <div className="dashboard-right">
                 <div className="breadcrumb">
                     <ul className="breadcrumb-list">
@@ -53,12 +11,9 @@ export default function Dashboard({setIsWorkoutPlan, setIsPersonalizedDietPlan, 
                         <li className="breadcrumb-item active"><a href="#">Diet Plan</a></li>
                     </ul>
                 </div>
-                <FitnessGoalForm setIsWorkoutPlan={setIsWorkoutPlan} setIsPersonalizedDietPlan={setIsPersonalizedDietPlan}/>
-                </div>
-            {/* </div>
-
-        </section> */}
-        <style jsx>{`
+                <FitnessGoalForm setIsWorkoutPlan={setIsWorkoutPlan} setIsPersonalizedDietPlan={setIsPersonalizedDietPlan} />
+            </div>
+            <style jsx>{`
             .dashboard-container {
                 display: flex;
                 flex-direction: row;
@@ -71,7 +26,7 @@ export default function Dashboard({setIsWorkoutPlan, setIsPersonalizedDietPlan, 
                 background-color: #ccc;
                 height: 100vh;
                 padding: 20px;
-                border-right: 1px solid #ddd;
+                // border-right: 1px solid #ddd;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -82,8 +37,10 @@ export default function Dashboard({setIsWorkoutPlan, setIsPersonalizedDietPlan, 
             }
                 .dashboard-right {
                 width: 80%;
+                height: 100vh;
                 padding: 20px;
                 background-color: #fff;
+                overflow: auto;
                 
             }
                 .img-div img {
@@ -147,6 +104,7 @@ export default function Dashboard({setIsWorkoutPlan, setIsPersonalizedDietPlan, 
                 .breadcrumb-list {
                 list-style: none;
                 padding: 0;
+                margin-top: 36px;
             }
                 .breadcrumb-item {
                 display: inline;

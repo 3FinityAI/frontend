@@ -6,59 +6,59 @@ import authorImage from "../../public/images/authorImage.png";
 export default function BlogListing() {
     const blogData = [
         {
-            imageUrl: blogImage,
+            imageUrl: "/images/blogImage.png",
             title: "Lorem, ipsum dolor.",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.",
             authorName: "John Doe",
-            authorImageUrl: authorImage,
+            authorImageUrl: "/images/authorImage.png",
             publishedAt: "12/08/2021",
         },
         {
-            imageUrl: blogImage,
+            imageUrl: "/images/blogImage.png",
             title: "Lorem, ipsum dolor.",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.",
             authorName: "John Doe",
-            authorImageUrl: authorImage,
+            authorImageUrl: "/images/authorImage.png",
             publishedAt: "12/08/2021",
         },
         {
-            imageUrl: blogImage,
+            imageUrl: "/images/blogImage.png",
             title: "Lorem, ipsum dolor.",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.",
             authorName: "John Doe",
-            authorImageUrl: authorImage,
+            authorImageUrl: "/images/authorImage.png",
             publishedAt: "12/08/2021",
         },
         {
-            imageUrl: blogImage,
+            imageUrl: "/images/blogImage.png",
             title: "Lorem, ipsum dolor.",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.",
             authorName: "John Doe",
-            authorImageUrl: authorImage,
+            authorImageUrl: "/images/authorImage.png",
             publishedAt: "12/08/2021",
         },
         {
-            imageUrl: blogImage,
+            imageUrl: "/images/blogImage.png",
             title: "Lorem, ipsum dolor.",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.",
             authorName: "John Doe",
-            authorImageUrl: authorImage,
+            authorImageUrl: "/images/authorImage.png",
             publishedAt: "12/08/2021",
         },
         {
-            imageUrl: blogImage,
+            imageUrl: "/images/blogImage.png",
             title: "Lorem, ipsum dolor.",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.",
             authorName: "John Doe",
-            authorImageUrl: authorImage,
+            authorImageUrl: "/images/authorImage.png",
             publishedAt: "12/08/2021",
         },
         {
-            imageUrl: blogImage,
+            imageUrl: "/images/blogImage.png",
             title: "Lorem, ipsum dolor.",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.",
             authorName: "John Doe",
-            authorImageUrl: authorImage,
+            authorImageUrl: "/images/authorImage.png",
             publishedAt: "12/08/2021",
         },
 
@@ -154,11 +154,11 @@ export default function BlogListing() {
                     {blogData.map((blog, index) => (
                         <a href={`/blogs/${index}`} key={index}>
                         <div className="blog-card">
-                            <img className="feature-img" src={blog?.imageUrl?.src} alt="Blog 1" />
+                            <img className="feature-img" src={blog?.imageUrl} alt="Blog 1" />
                             <h5>{blog?.title}</h5>
                             <p>{blog?.description}</p>
                             <div className="blog-author-detail">
-                                <img className="author-img" src={blog?.authorImageUrl?.src} alt="author 1" />
+                                <img className="author-img" src={blog?.authorImageUrl} alt="author 1" />
                                 <p><strong>{blog?.authorName}</strong><span>{blog?.publishedAt}</span></p>
                             </div>
                         </div>

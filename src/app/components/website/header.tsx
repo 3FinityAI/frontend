@@ -15,7 +15,6 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "./header.module.scss";
-import LogoSvg from "../../public/images/logo.svg";
 import SignupModal from "./Signup";
 import SigninModal from "./Signin";
 import ResetPasswordModal from "./ResetPassword";
@@ -83,7 +82,7 @@ const Header: React.FC = () => {
   const mobileMenu = (
     <div className={styles.mobileMenuContainer}>
       <div className={styles.mobileMenuHeader}>
-        <img src={LogoSvg.src} width={150} height={33} alt="3finity Logo" />
+        <img src={"/images/logo.svg"} width={150} height={33} alt="3finity Logo" />
         <IconButton
           className={styles.closeMenuButton}
           onClick={handleDrawerToggle}
@@ -109,7 +108,7 @@ const Header: React.FC = () => {
       <AppBar position="static" className={styles.appBar}>
         <Container maxWidth="xl">
           <Toolbar disableGutters className={styles.toolbar}>
-            <img src={LogoSvg.src} width={187} height={41} alt="3finity Logo" />
+            <img src={"/images/logo.svg"} width={187} height={41} alt="3finity Logo" />
             <div style={{ flexGrow: 1 }}></div>
           </Toolbar>
         </Container>
@@ -122,7 +121,7 @@ const Header: React.FC = () => {
     <AppBar position="static" className={styles.appBar}>
       <Container maxWidth="xl">
         <Toolbar disableGutters className={styles.toolbar}>
-          <a href="/"><img src={LogoSvg.src} width={187} height={41} alt="3finity Logo" /></a>
+          <a href="/"><img src={"/images/logo.svg"} width={187} height={41} alt="3finity Logo" /></a>
 
           {!isMobile && (
             <Box className={styles.navLinks}>

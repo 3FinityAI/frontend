@@ -3,13 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography, Button, Container, Stack, Card } from "@mui/material";
 import styles from "./hero-section.module.scss";
-import PlayStoreSvg from "../../public/images/play-store.svg";
-import AppStoreSvg from "../../public/images/app-store.svg";
-import IndianFlagPng from "../../public/images/india-flag-icon.png";
-import AbstractTopPng from "../../public/images/3d-abstract-top.png";
-import AbstractRightPng from "../../public/images/3d-abstract-right.png";
-import AbstractBottomPng from "../../public/images/3d-abstract-bottom.png";
-import HeroImagePng from "../../public/images/hero-image.png";
 
 // Remove dynamic layout changes by not using useMediaQuery
 const HeroSection = () => {
@@ -45,7 +38,7 @@ const HeroSection = () => {
                 {/* Made in India badge */}
                 <Card className={styles.indiaBadge}>
                   <img
-                    src={IndianFlagPng.src}
+                    src={"/images/india-flag-icon.png"}
                     width={41}
                     height={59}
                     alt="Indian Flag"
@@ -80,7 +73,7 @@ const HeroSection = () => {
                   <Stack direction="row" spacing={2}>
                     <Button className={styles.appButton}>
                       <img
-                        src={PlayStoreSvg.src}
+                        src={"/images/play-store.svg"}
                         width={140}
                         height={42}
                         alt="Get it on Google Play"
@@ -88,7 +81,7 @@ const HeroSection = () => {
                     </Button>
                     <Button className={styles.appButton}>
                       <img
-                        src={AppStoreSvg.src}
+                        src={"/images/app-store.svg"}
                         width={140}
                         height={42}
                         alt="Download on the App Store"
@@ -101,24 +94,24 @@ const HeroSection = () => {
               {/* Phone mockup */}
               <Box className={styles.phoneWrapper}>
                 <img
-                  src={HeroImagePng.src}
+                  src={"/images/hero-image.png"}
                   alt="Hero App Screenshot"
                   className={styles.phoneMockup}
                 />
 
                 {/* Floating images replacing divs */}
                 <img
-                  src={AbstractTopPng.src}
+                  src={"/images/3d-abstract-top.png"}
                   alt="Abstract Shape Top"
                   className={styles.floatingObjectTop}
                 />
                 <img
-                  src={AbstractRightPng.src}
+                  src={"/images/3d-abstract-right.png"}
                   alt="Abstract Shape Right"
                   className={styles.floatingObjectRight}
                 />
                 <img
-                  src={AbstractBottomPng.src}
+                  src={"/images/3d-abstract-bottom.png"}
                   alt="Abstract Shape Bottom"
                   className={styles.floatingObjectBottom}
                 />
