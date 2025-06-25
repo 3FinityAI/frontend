@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import DoughnutChart from "./DoughnutChart";
 import AddFundModal from "./AddFundModal";
+import { RetirementResponse } from "../../../../constants"
+
 export default function MyInvestment() {
 
     const [isAddFundModalOpen, setIsAddFundModalOpen] = useState(false);
@@ -23,7 +25,9 @@ export default function MyInvestment() {
                         </div>
                          <div className="investment-chart">
                             {/* chart */}
-                            <DoughnutChart />
+                            <div style={{ width: '221px', height: '221px', margin: '30px auto' }}>
+                                <DoughnutChart chartData={RetirementResponse?.recommendedAllocation}/>
+                            </div>
                             <ul className="funds-list">
                                 <li className="funds-items">
                                     <p className="fund-name">Future Income</p>
@@ -58,8 +62,8 @@ export default function MyInvestment() {
                             
                             <li className="fund-allocation-item">
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                                    <p className="fund-all-plan">Direct Plan -Growth</p>
+                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    
                                 </div>
                                 <div className="fund-allo-amnt-share">
                                     <p className="fund-amnt">₹31,245</p>
@@ -68,8 +72,8 @@ export default function MyInvestment() {
                             </li>
                             <li className="fund-allocation-item">
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                                    <p className="fund-all-plan">Direct Plan -Growth</p>
+                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    
                                 </div>
                                 <div className="fund-allo-amnt-share">
                                     <p className="fund-amnt">₹31,245</p>
@@ -78,8 +82,8 @@ export default function MyInvestment() {
                             </li>
                             <li className="fund-allocation-item">
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                                    <p className="fund-all-plan">Direct Plan -Growth</p>
+                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    
                                 </div>
                                 <div className="fund-allo-amnt-share">
                                     <p className="fund-amnt">₹31,245</p>
@@ -88,8 +92,8 @@ export default function MyInvestment() {
                             </li>
                             <li className="fund-allocation-item">
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                                    <p className="fund-all-plan">Direct Plan -Growth</p>
+                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    
                                 </div>
                                 <div className="fund-allo-amnt-share">
                                     <p className="fund-amnt">₹31,245</p>
@@ -98,8 +102,8 @@ export default function MyInvestment() {
                             </li>
                             <li className="fund-allocation-item">
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                                    <p className="fund-all-plan">Direct Plan -Growth</p>
+                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    
                                 </div>
                                 <div className="fund-allo-amnt-share">
                                     <p className="fund-amnt">₹31,245</p>
@@ -108,8 +112,8 @@ export default function MyInvestment() {
                             </li>
                             <li className="fund-allocation-item">
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                                    <p className="fund-all-plan">Direct Plan -Growth</p>
+                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    
                                 </div>
                                 <div className="fund-allo-amnt-share">
                                     <p className="fund-amnt">₹31,245</p>
@@ -118,8 +122,8 @@ export default function MyInvestment() {
                             </li>
                             <li className="fund-allocation-item">
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                                    <p className="fund-all-plan">Direct Plan -Growth</p>
+                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    
                                 </div>
                                 <div className="fund-allo-amnt-share">
                                     <p className="fund-amnt">₹31,245</p>
@@ -128,8 +132,8 @@ export default function MyInvestment() {
                             </li>
                             <li className="fund-allocation-item">
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                                    <p className="fund-all-plan">Direct Plan -Growth</p>
+                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    
                                 </div>
                                 <div className="fund-allo-amnt-share">
                                     <p className="fund-amnt">₹31,245</p>
@@ -146,7 +150,7 @@ export default function MyInvestment() {
                 .dashboard-right {
                 width: 80%;
                 padding: 20px;
-                background-color: #fff;
+                background-color: #010612;
                 overflow-y: auto;
                 
             }
@@ -165,12 +169,12 @@ export default function MyInvestment() {
             }
                 .breadcrumb-item a {
                 text-decoration: none;
-                color: #bbb;
+                color: #aaa;
                 font-size: 28px;
                 font-weight: 500;
             }
             .breadcrumb-item.bc-active a {
-                color: #000;
+                color: #fff;
             }
                 .breadcrumb-item:not(:last-child)::after {
                 content: " > ";
@@ -186,41 +190,46 @@ export default function MyInvestment() {
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            margin-inline: 50px;
             padding: 20px;
-            gap: 100px;
+            gap: 50px;
             }
             .investment-left {
+            width: 369px;
+            display: flex;
+            flex-direction: column;
+            
            
             }
         .total-amnt-div {
             width: 100%;
             padding: 12px;
-            background-color: #f2f2f2;
+            background-color: #010612;
             border-radius: 8px;
             }
-        .total-amnt-text {font-size: 16px; margin: 0;}
-        .total-amnt-val {font-size: 42px; font-weight: bold;margin: 0;}
+        .total-amnt-text {font-size: 16px; margin: 0; color: #fff;}
+        .total-amnt-val {font-size: 42px; font-weight: bold;margin: 0; color: #fff;}
 
-        .investment-chart {display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 100%; 
-  height: 321px;
+        .investment-chart {display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; width: 100%; 
+  height: 221px;
   padding: 12px;}
         .funds-list {width: 100%; text-align:center; list-style-type: none; display: inline-block; position: relative; padding: 0; margin: 0;}
-        .funds-items {width: auto;position: relative; display: inline-block; padding: 10px; margin: 0 10px;  }
-    //     .funds-items::before{content: " ";
-    // border-left: 8px solid red;
-    // position: absolute;
-    // top: 10px;
-    // left: -19px;
-    // border-radius: 8px;display: block;
-    // height: 30px;}
-        .fund-name {font-size: 16px; margin: 0;}
-        .fund-share {font-size: 16px; font-weight: bold; margin: 0;}
+        .funds-items {width: auto;position: relative; display: inline-block; padding: 0 10px; margin: 0 10px;  }
+    .funds-items::before{content: " ";
+    border-left: 11px solid red;
+    position: absolute;
+    top: 8px;
+    left: -8px;
+    border-radius: 8px;display: block;
+    height: 28px;}
+        .fund-name {font-size: 14px;color: #fff;}
+        .fund-share {font-size: 14px; font-weight: bold; color: #fff;}
         `}</style>
         <style jsx>{`
         .investment-right {
-            width: 100%;
-            // padding: 20px;
-            background-color: #fff;
+        flex: 1;
+            
+            background-color: #010612;
             border-radius: 14px;
             border: 1px solid #ddd;
             }
@@ -231,9 +240,9 @@ export default function MyInvestment() {
             padding: 15px;
             border-radius: 14px 14px 0px 0px; 
             
-            background: #f2f2f2;
+            background: #171C28;
         }
-        .fund-allocation-ttl {font-size: 18px; padding: 10px 0; margin: 0;}
+        .fund-allocation-ttl {font-size: 18px; padding: 10px 0; margin: 0; color: #fff;}
         .add-more-btn {
             background-color: #007bff;
             color: white;
@@ -257,9 +266,10 @@ export default function MyInvestment() {
     height: 11px;
     background: #E1BE55;
     }
-        .fund-all-name, .fund-all-plan, .fund-roi {font-size: 16px;font-weight: 500;}
-        .fund-amnt{font-size: 16px; font-weight: bold;}
-        .fund-roi span {font-weight: bold;}
+    .fund-allocation-name {width: 45%;}
+        .fund-all-name, .fund-all-plan, .fund-roi {font-size: 16px;font-weight: 500;color: #fff;}
+        .fund-amnt{font-size: 16px; font-weight: bold;color: #fff;}
+        .fund-roi span {font-weight: bold;color: #fff;}
         `}</style>
             
        

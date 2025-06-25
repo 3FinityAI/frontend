@@ -151,11 +151,11 @@ export default function AddFundModal({setIsAddFundModalOpen }) {
                     transform: translate(-50%, -50%);
                 }
                     .close-btn {
+                    cursor: pointer;
                     position: relative;
-                    /* display: block; */
-                    /* right: 64%; */
-                    top: -10px;
-                    left: 365px;
+                    left: 330px;
+                    color: #000;
+                    top: -8px;
                     font-weight: bold;
                 }
                 .search-box {

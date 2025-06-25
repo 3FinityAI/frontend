@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DoughnutChart from "./DoughnutChart";
 import LineChartModal from "./LineChartModal";
+import { RetirementResponse } from "../../../../constants"
 
 export default function RetirementPlanningResults({ }) {
 
@@ -11,7 +12,7 @@ export default function RetirementPlanningResults({ }) {
     }
     const closeLineChart = ()=> {
         setIsOpen(false);
-    }
+    } 
 
     return (
         <>
@@ -46,9 +47,17 @@ export default function RetirementPlanningResults({ }) {
                         
                         <div className="results-top-right">
                             {/* chart */}
-                            <DoughnutChart />
+                            <div style={{ width: '221px', height: '221' }}>
+                                <DoughnutChart chartData={RetirementResponse.recommendedAllocation}/>
+                            </div>
                             <ul className="funds-list">
-                                <li className="funds-items">
+                                {RetirementResponse && RetirementResponse.recommendedAllocation && RetirementResponse.recommendedAllocation.map((fund)=> (
+                                     <li className="funds-items">
+                                    <p className="fund-name">{fund?.assetType}</p>
+                                    <p className="fund-share">{fund?.allocationPercentage}</p>
+                                </li>
+                                ))}
+                                {/* <li className="funds-items">
                                     <p className="fund-name">Future Income</p>
                                     <p className="fund-share">30%</p>
                                 </li>
@@ -63,7 +72,7 @@ export default function RetirementPlanningResults({ }) {
                                 <li className="funds-items">
                                     <p className="fund-name">Future Income</p>
                                     <p className="fund-share">30%</p>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>
@@ -213,10 +222,9 @@ export default function RetirementPlanningResults({ }) {
         .fut-inc-ttl, .time-goal-ttl {margin-block: 14px; color: #fff;}
         .fut-inc-amount, .ime-goal-val {font-size: 26px; font-weight: bold;color: #fff;}
         .results-top-right {display: flex; flex:1;
-  justify-content: space-around;
-  height: 221px;}
+  justify-content: space-around;}
         .funds-list {list-style-type: none; display: block; position: relative;}
-        .funds-items {width: 138px;position: relative;    margin-bottom: 12px;}
+        .funds-items {]position: relative;    margin-bottom: 12px;}
         .funds-items::before{content: " ";
     border-left: 8px solid red;
     position: absolute;

@@ -10,13 +10,25 @@ import centerTextPlugin from "../../../plugins/doughnutCenterText"
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DoughnutChart = () => {
+const DoughnutChart = ({chartData}) => {
+
+  if (!chartData || chartData.length === 0) {
+  return null; // or a loading spinner
+}
+
+  console.log(chartData, "chartData")
+
+
+  const colorList = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'];
+  const dummyData = [30, 40, 15, 15];
+
+
   const data = {
-    // labels: ['Future Income', 'Flexicap Fund', 'Smallcap Fund', 'Midcap Fund'],
+    labels: ['Future Income', 'Flexicap Fund', 'Smallcap Fund', 'Midcap Fund'],
     datasets: [
       {
         label: 'Fund Allocation',
-        data: [30, 20, 30, 20],
+        data: chartData.map((item)=> Number(parseFloat(item?.allocationPercentage.replace('%', ''))) ),
         backgroundColor: [
           '#FF6384', // Future Income
           '#36A2EB', // Flexicap
@@ -30,15 +42,16 @@ const DoughnutChart = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'right',
+        display: false,
       },
     },
     cutout: '82%',
   };
 
-  return <Doughnut data={data} options={options} plugins={[centerTextPlugin]}/>;
+  return <Doughnut data={data}  width={221} height={221} options={options} plugins={[centerTextPlugin]}/>;
 };
 
 export default DoughnutChart;

@@ -41,7 +41,7 @@ export default function FundModal({setIsFundOpen}) {
                 padding: 20px;
                 border-radius: 10px;
                 width: 375px;
-                height: 386px;
+                height: 480px;
             }
             .fund-name {
                 display: flex;
@@ -51,6 +51,8 @@ export default function FundModal({setIsFundOpen}) {
             }
             .close-btn {
                 cursor: pointer;
+                color: #000;
+                font-weight: bold;
             }
             .fund-form {
                 display: flex;

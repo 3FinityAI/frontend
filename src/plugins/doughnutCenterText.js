@@ -8,10 +8,10 @@ const centerTextPlugin = {
     ctx.restore();
 
     const fontSize = (height / 100).toFixed(2);
-    ctx.font = `$16px sans-serif`;
+    ctx.font = `$22px sans-serif`;
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
-    ctx.fillStyle = '#333';
+    ctx.fillStyle = '#fff';
 
     const lines = text.split('\n');
     lines.forEach((line, i) => {

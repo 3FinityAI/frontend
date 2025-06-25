@@ -43,7 +43,7 @@ export default function LineChartModal({closeLineChart }) {
                      .close-btn {
                     position: relative;
                     top: -230px;
-                    left: 190px;
+                    left: 170px;
                     font-weight: bold;
                     font-size: 20px;
                     z-index: 1;

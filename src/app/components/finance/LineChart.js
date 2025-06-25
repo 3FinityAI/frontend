@@ -55,21 +55,21 @@ const LineChart = () => {
     maintainAspectRatio: false,
     plugins: {
         tooltip: {
-      enabled: true,
-    },
-      title: {
-        display: true,
-        text: truncate("Motilal Oswal 4-Year Return Performance Data", maxTitleLength),
-        align: 'start', 
-        font: {
-        size: 20,
-        weight: '500',
+          enabled: true,
         },
-      color: '#0D0D0D',
-      padding: {
-        top: 10,
-        bottom: 30,
-      },
+        title: {
+          display: true,
+          text: truncate("Motilal Oswal 4-Year Return Performance Data", maxTitleLength),
+          align: 'start', 
+          font: {
+          size: 20,
+          weight: '500',
+        },
+        color: '#0D0D0D',
+        padding: {
+          top: 10,
+          bottom: 30,
+        },
       },
       legend: {
         display: false,
