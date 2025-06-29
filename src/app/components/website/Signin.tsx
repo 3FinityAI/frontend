@@ -177,7 +177,7 @@ export default function SigninModal({ isOpen, onClose, onReset, onSignup }) {
             <div className="modal">
 
                 <div className="imageContainer">
-                    <img src={scan_to_dwld.src} alt="Scan to download" />
+                    <img src={"/images/scan_to_dwld.png"} alt="Scan to download" />
                 </div>
                 <div className="formContainer">
                     <button className="closeBtn" onClick={onClose}>×</button>

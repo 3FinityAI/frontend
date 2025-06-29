@@ -4,11 +4,11 @@ import scan_to_dwld from "../../public/images/scan_to_dwld.png";
 
 export default function BlogDetail() {
     const blogData = {
-        imageUrl: blogImage,
+        imageUrl: "/images/blogImage.png",
         title: "Lorem, ipsum dolor.",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.",
         authorName: "John Doe",
-        authorImageUrl: authorImage,
+        authorImageUrl: "/images/authorImage.png",
         publishedAt: "12/08/2021",
     }
 
@@ -70,12 +70,12 @@ export default function BlogDetail() {
         <div className="blog-detail-container">
             <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos architecto esse ratione, magnam minima qui!</h1>
             <div className="blog-author-detail">
-                <img className="author-img" src={blogData?.authorImageUrl?.src} alt="author 1" />
+                <img className="author-img" src={blogData?.authorImageUrl} alt="author 1" />
                 <p><strong>{blogData?.authorName}</strong><span>{blogData?.publishedAt}</span></p>
             </div>
             <div className="blog-detail">
                 <div className="blog-left">
-                    <img className="blog-img" src={blogData?.imageUrl?.src} alt="blog 1" />
+                    <img className="blog-img" src={blogData?.imageUrl} alt="blog 1" />
                     {/* <h2>{blogData?.title}</h2>
                     <p>{blogData?.description}</p> */}
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.</p>
@@ -84,7 +84,7 @@ export default function BlogDetail() {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quos iste consectetur eligendi dolore, fugiat recusandae aut quidem nemo doloremque nobis aliquam explicabo praesentium architecto reiciendis obcaecati voluptatem a molestiae.</p>
                 </div>
                 <div className="blog-right">
-                    <img src={scan_to_dwld?.src} alt="" />
+                    <img src={"/images/scan_to_dwld.png"} alt="" />
                 </div>
             </div>
         </div>

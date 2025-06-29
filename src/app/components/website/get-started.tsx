@@ -2,7 +2,6 @@
 
 import React from "react";
 import styles from "./get-started.module.scss";
-import AiThatUnderstandsYouPng from "../../public/images/ai-that-understands-you.png";
 
 const GetStarted = () => {
   return (
@@ -12,7 +11,7 @@ const GetStarted = () => {
         {/* Small decorative elements with image */}
         <div className={`${styles.decorativeCircle} ${styles.topLeft}`}>
           <img
-            src={AiThatUnderstandsYouPng.src}
+            src={"/images/ai-that-understands-you.png"}
             width={206}
             height={191}
             alt="AI that understands"
@@ -21,7 +20,7 @@ const GetStarted = () => {
         </div>
         <div className={`${styles.decorativeCircle} ${styles.rightBottom}`}>
           <img
-            src={AiThatUnderstandsYouPng.src}
+            src={"/images/ai-that-understands-you.png"}
             width={42}
             height={39}
             alt="AI that understands"
@@ -30,7 +29,7 @@ const GetStarted = () => {
         </div>
         <div className={`${styles.decorativeCircle} ${styles.rightTop}`}>
           <img
-            src={AiThatUnderstandsYouPng.src}
+            src={"/images/ai-that-understands-you.png"}
             width={42}
             height={39}
             alt="AI that understands"
@@ -39,7 +38,7 @@ const GetStarted = () => {
         </div>
         <div className={`${styles.decorativeCircle} ${styles.topLeftwide}`}>
           <img
-            src={AiThatUnderstandsYouPng.src}
+            src={"/images/ai-that-understands-you.png"}
             width={42}
             height={39}
             alt="AI that understands"

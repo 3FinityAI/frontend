@@ -11,15 +11,12 @@ import {
   Stack,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import FooterLogoSvg from "../../public/images/logo-footer.svg";
-import AppStoreSvg from "../../public/images/app-store.svg";
-import PlayStoreSvg from "../../public/images/play-store.svg";
 
 // App store badges
 const AppStoreBadge = () => (
   <Box component="a" href="#" sx={{ display: "inline-block", mr: 1 }}>
     <img
-      src={AppStoreSvg.src}
+      src={"/images/app-store.svg"}
       width={140}
       height={42}
       alt="Download on the App Store"
@@ -30,7 +27,7 @@ const AppStoreBadge = () => (
 const GooglePlayBadge = () => (
   <Box component="a" href="#" sx={{ display: "inline-block" }}>
     <img
-      src={PlayStoreSvg.src}
+      src={"/images/play-store.svg"}
       width={140}
       height={42}
       alt="Get it on Google Play"
@@ -41,7 +38,7 @@ const GooglePlayBadge = () => (
 // Logo component
 const Logo = () => (
   <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-    <img src={FooterLogoSvg.src} width={187} height={74} alt="footer logo" />
+    <img src={"/images/logo-footer.svg"} width={187} height={74} alt="footer logo" />
   </Box>
 );
 

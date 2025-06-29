@@ -1,6 +1,6 @@
 import React from "react";
 import MyApp from "./app";
-import "./public/styles/global.css";
+import "../../public/styles/global.css";
 
 export const metadata = {
   title: "3finityai",

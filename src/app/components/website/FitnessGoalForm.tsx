@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-export default function FitnessGoalForm() {
+export default function FitnessGoalForm({setIsWorkoutPlan, setIsPersonalizedDietPlan}) {
   const [agenda, setAgenda] = useState('muscle');
   const [foodPref, setFoodPref] = useState('indian');
   const [currentWeight, setCurrentWeight] = useState(60);
@@ -83,7 +83,7 @@ export default function FitnessGoalForm() {
       </div>
       </div>
         {/* Submit Button */}
-        <button className="calculate">Calculate</button>
+        <button className="calculate" onClick={()=> setIsWorkoutPlan(true)}>Calculate</button>
 
 
       <style jsx>{`
