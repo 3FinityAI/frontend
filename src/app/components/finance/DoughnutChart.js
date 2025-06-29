@@ -30,10 +30,13 @@ const DoughnutChart = ({chartData}) => {
         label: 'Fund Allocation',
         data: chartData.map((item)=> Number(parseFloat(item?.allocationPercentage.replace('%', ''))) ),
         backgroundColor: [
-          '#FF6384', // Future Income
-          '#36A2EB', // Flexicap
-          '#FFCE56', // Smallcap
-          '#4BC0C0', // Midcap
+         "#E57373", // red
+    "#64B5F6", // blue
+    "#81C784", // green
+    "#FFD54F", // yellow
+    "#BA68C8", // purple
+    "#4DB6AC", // teal
+    "#A1887F", // brown
         ],
         borderWidth: 1,
       },
@@ -51,7 +54,7 @@ const DoughnutChart = ({chartData}) => {
     cutout: '82%',
   };
 
-  return <Doughnut data={data}  width={221} height={221} options={options} plugins={[centerTextPlugin]}/>;
+  return <Doughnut data={data}  width={221} height={221} options={options} plugins={[centerTextPlugin({monthlySavings: 35051})]}/>;
 };
 
 export default DoughnutChart;

@@ -13,7 +13,7 @@ export default function FundModal({setIsFundOpen}) {
                 <div className="fund-form">
                     <div className="form-group">
                         <label htmlFor ="investment-amount">Investment Amount</label>
-                        <input type="number" id="investment-amount" placeholder="Enter amount" />
+                        <input type="number" id="investment-amount" placeholder="Enter amount" value={""} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="investment-duration">Years</label>
@@ -37,7 +37,7 @@ export default function FundModal({setIsFundOpen}) {
                 z-index: 1001;
             }
             .fund-modal {
-                background: #F2F2F7;
+                background: #0E1524;
                 padding: 20px;
                 border-radius: 10px;
                 width: 375px;
@@ -48,10 +48,11 @@ export default function FundModal({setIsFundOpen}) {
                 justify-content: space-between;
                 align-items: center;
                 margin-bottom: 20px;
+                color: #fff;
             }
             .close-btn {
                 cursor: pointer;
-                color: #000;
+                color: #fff;
                 font-weight: bold;
             }
             .fund-form {
@@ -66,12 +67,16 @@ export default function FundModal({setIsFundOpen}) {
                     display: block;
                     margin-bottom: 5px;
                     font-weight: bold;
+                    color: #fff;
                 }
             .form-group input[type="number"] {
                 width: 348px;
                 padding: 12px;
-                border: 1px solid #ccc;
+                border:none;
+                outline: none;
                 border-radius: 4px;
+                background:rgb(23, 29, 43);
+                appearance: none;
             }
                 .form-group input[type="range"] {
                 width: 75%;

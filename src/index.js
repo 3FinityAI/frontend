@@ -5,7 +5,7 @@ import App from './app/app';
 
 // Create a simple theme wrapper directly in index.js
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import './app/public/styles/global.css'; 
+import '/styles/global.css'; 
 
 // Create a basic theme
 const theme = createTheme({

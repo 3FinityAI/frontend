@@ -93,11 +93,11 @@ const HeroSection = () => {
 
               {/* Phone mockup */}
               <Box className={styles.phoneWrapper}>
-                <img
+                {/* <img
                   src={"/images/hero-image.png"}
                   alt="Hero App Screenshot"
                   className={styles.phoneMockup}
-                />
+                /> */}
 
                 {/* Floating images replacing divs */}
                 <img

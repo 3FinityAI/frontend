@@ -13,6 +13,8 @@ export default function RetirementPlanning({setIsCalculated }) {
         <>
             <div className="dashboard-right">
                 <div className="breadcrumb">
+                  <a href="/products" className="mob-nav-icon">&lt;</a>
+
                     <ul className="breadcrumb-list">
                         <li className="breadcrumb-item"><a href="/products/finance">Finance</a></li>
                         <li className="breadcrumb-item bc-active"><a >Retirement Planning</a></li>
@@ -98,6 +100,7 @@ export default function RetirementPlanning({setIsCalculated }) {
                 overflow: auto;
                 
             }
+                .mob-nav-icon {display: none;}
                 
                 .breadcrumb {
                 margin-bottom: 20px;
@@ -249,6 +252,21 @@ export default function RetirementPlanning({setIsCalculated }) {
         }
             
 
+      `}</style>
+      <style jsx>{`
+      @media (max-width:769px){
+      .form-container {padding: 0; border: none;}
+      .dashboard-right {width: 100%;}
+      .breadcrumb {display: flex; align-items: center;}
+      .breadcrumb-item {display: none;}
+      .breadcrumb-item.bc-active {display: block;}
+      .mob-nav-icon {display: block;font-size: 32px; color: #fff; margin: 36px 36px 0 0;}
+      .form-btm {width: 100%; flex-direction: column;}
+      .form-btm .section {width: 100%;}
+      input[type="range"] {width: 82%;}
+      .button-group {justify-content: space-between;}
+      .calculate {width: 100%}
+      input[type="text"] {width: 100%;}
       `}</style>
         </>
     );

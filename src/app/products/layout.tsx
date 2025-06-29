@@ -1,37 +1,17 @@
-"use client";
-import { Suspense } from "react";
-import React from "react";
-import { usePathname } from 'next/navigation'
-import AppHeaderBar from "../components/website/header";
-import Footer from "../components/website/footer";
-import Sidebar from "../components/common/Sidebar";
+// app/products/layout.tsx
+import { ReactNode } from "react";
+import { headers } from "next/headers";
+import DesktopLayout from "./DesktopLayout"
+import MobileLayout from "./MobileLayout";
 
-export default function ProductLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const pathname = usePathname();
+export default function ProductLayout({ children }: { children: ReactNode }) {
+  const headersList = headers();
+  const userAgent = headersList.get("user-agent") || "";
+  const isMobile = /mobile|android|iphone|ipad/i.test(userAgent);
 
-  return (
-
-    <div style={{backgroundColor: "#010612"}}>
-      {pathname == "/products" ? <><AppHeaderBar />
-        <Suspense fallback={<div>Loading...</div>}>
-          {children}
-        </Suspense>
-        <Footer /></>
-        :
-        <>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Sidebar>
-              {children}
-            </Sidebar>
-          </Suspense>
-        </>
-      }
-
-    </div>
+  return isMobile ? (
+    <MobileLayout>{children}</MobileLayout>
+  ) : (
+    <DesktopLayout>{children}</DesktopLayout>
   );
 }
-
