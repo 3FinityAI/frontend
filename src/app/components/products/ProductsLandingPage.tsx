@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import fashionlogo from '../../public/images/fashion-logo.png';
 import fitnesslogo from '../../public/images/fitness-logo.png';
@@ -44,6 +45,7 @@ export default function ProductsLandingPage() {
                 padding: 20px;
                 background-color: transparent;
                 color: #fff;
+                margin-top: 48px
             }
             .products-lists {
                 display: flex;

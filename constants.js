@@ -73,7 +73,9 @@ export const RetirementResponse = {
             "10Y": "11.29%",
             "averageReturn": 11.29,
             "reason": "Low risk, stable returns, and broad market exposure for diversification."
-        }
+        },
+        
+        
     ],
     "recommendedAllocation": [
         {
@@ -91,7 +93,11 @@ export const RetirementResponse = {
         {
             "assetType": "Index Funds/ETFs",
             "allocationPercentage": "15%"
-        }
+        },
+        {
+            "assetType": "Dividend Yield Fund",
+            "allocationPercentage": "15%"
+        },
     ]
 }
 

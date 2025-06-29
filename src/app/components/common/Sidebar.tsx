@@ -67,7 +67,7 @@ export default function Sidebar({
                 .dashboard-left {
                 width: 20%;
                 height: 100vh;
-                margin: 0 auto;
+                // margin: 0 auto;
                 background-color: #0E1524;
                 
                 padding: 20px;

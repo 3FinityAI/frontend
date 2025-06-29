@@ -1,25 +1,30 @@
-// plugins/doughnutCenterText.js
+export default function centerTextPlugin({ monthlySavings }) {
+  return {
+    id: 'centerTextPlugin',
+    beforeDraw(chart) {
+      const { width, height, ctx } = chart;
+      ctx.restore();
 
-const centerTextPlugin = {
-  id: 'centerTextPlugin',
-  beforeDraw(chart) {
-    const { width, height, ctx } = chart;
-    const text = 'Monthly Investment\n40,000';
-    ctx.restore();
+      const title = 'Monthly Investment';
+      const value = `₹${monthlySavings}`;
 
-    const fontSize = (height / 100).toFixed(2);
-    ctx.font = `$22px sans-serif`;
-    ctx.textBaseline = 'middle';
-    ctx.textAlign = 'center';
-    ctx.fillStyle = '#fff';
+      const baseFontSize = 18;
+      const valueFontSize = 24;
 
-    const lines = text.split('\n');
-    lines.forEach((line, i) => {
-      ctx.fillText(line, width / 2, height / 2 + i * 20);
-    });
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
 
-    ctx.save();
-  },
-};
+      // Draw dull-colored title
+      ctx.font = `${baseFontSize}px sans-serif`;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)'; // semi-transparent white
+      ctx.fillText(title, width / 2, height / 2 - 15);
 
-export default centerTextPlugin;
+      // Draw bold value
+      ctx.font = `${valueFontSize}px sans-serif`;
+      ctx.fillStyle = '#ffffff'; // pure white
+      ctx.fillText(value, width / 2, height / 2 + 15);
+
+      ctx.save();
+    },
+  };
+}
