@@ -20,6 +20,10 @@ export default function ProductsLandingPageMweb() {
   return (
     <>
       <div className="products-lnading-mweb-container">
+        <div className="user-notify-container">
+          <img src={"/images/user_icon_mob.svg"} alt="" className="user-icon-logo" />
+          <img src={"/images/notification-bell.png"} alt="" className="notify-logo" />
+        </div>
         <div className="products-top">
           <h4 className="greeting-txt">Good Morning,</h4>
           <h1 className="user-nme">Salim!</h1>
@@ -27,43 +31,56 @@ export default function ProductsLandingPageMweb() {
 
         <div className="products-grid">
           <div className="grid-item grid-item-first">
+             <a href="/products/finance/">
             <img
-              src={"/images/fitness_icon_w.png"}
+              src={"/images/rupee_icon_mob.svg"}
               alt=""
               className="product-icon"
             />
             <div className="grid-btm">
+             
+
               <p className="product-nme">
                 <strong>Finance</strong> Finity
               </p>
               <img src={"/images/right-arr.png"} alt="" className="right-arr" />
+              
             </div>
+            </a>
           </div>
           <div className="grid-item">
+            <a href="/products/fashion/">
             <img
-              src={"/images/fitness_icon_w.png"}
+              src={"/images/fashion_icon_mob.svg"}
               alt=""
               className="product-icon"
             />
             <div className="grid-btm">
+              
               <p className="product-nme">
-                <strong>Finance</strong> Finity
+                <strong>Fashion</strong> Finity
               </p>
               <img src={"/images/right-arr.png"} alt="" className="right-arr" />
+              
             </div>
+            </a>
           </div>
           <div className="grid-item">
+            <a href="/products/fitness/">
             <img
-              src={"/images/fitness_icon_w.png"}
+              src={"/images/fitness_icon_mob.svg"}
               alt=""
               className="product-icon"
             />
             <div className="grid-btm">
+              
               <p className="product-nme">
-                <strong>Finance</strong> Finity
+                <strong>Fitness</strong> Finity
               </p>
               <img src={"/images/right-arr.png"} alt="" className="right-arr" />
+             
             </div>
+             </a>
           </div>
         </div>
         <div className="fashion-img-container">
@@ -224,24 +241,24 @@ export default function ProductsLandingPageMweb() {
       </div>
       <ul className="menus-list">
         <li className="menu-item">
-          <img src="/images/dashboard_icon_w.png" alt="" className="menu-ic" />
-          Home
+          <a href="/products/"><img src="/images/dashboard_icon_w.png" alt="" className="menu-ic" />
+          Home</a>
         </li>
         <li className="menu-item">
-          <img src="/images/fitness_icon_w.png" alt="" className="menu-ic" />
-          Fashion
+          <a href="/products/fashion/"><img src="/images/fashion_icon_w.png" alt="" className="menu-ic" />
+          Fashion</a>
         </li>
         <li className="menu-item">
-          <img src="/images/fitness_icon_w.png" alt="" className="menu-ic" />
-          Finance
+          <a href="/products/finance/"><img src="/images/rupee_icon_w.png" alt="" className="menu-ic" />
+          Finance</a>
         </li>
         <li className="menu-item">
-          <img src="/images/fitness_icon_w.png" alt="" className="menu-ic" />
-          Fitness
+          <a href="/products/fitness/"><img src="/images/fitness_icon_w.png" alt="" className="menu-ic" />
+          Fitness</a>
         </li>
         <li className="menu-item">
-          <img src="/images/fitness_icon_w.png" alt="" className="menu-ic" />
-          Investment
+          <a href="/products/finance/my-investment/"><img src="/images/fitness_icon_w.png" alt="" className="menu-ic" />
+          Investment</a>
         </li>
       </ul>
       <style jsx>
@@ -251,11 +268,27 @@ export default function ProductsLandingPageMweb() {
                 background-color: #010612;
                 font-family: Arial, sans-serif;
             }
+                .user-notify-container {
+                display: flex;
+                justify-content: space-between;
+                margin: 40px 0;
+              
+                align-items: center;
+                }
+        
+    .user-icon-logo,  .notify-logo{width: 50px; height: 50px;
+    padding: 5px;
+    background: #001C3D;
+    border-radius: 16px;}
+    .notify-logo {padding: 12px;}
+
                 .products-top {
                 display: flex;
                 flex-direction: column;
 
-                align-items: flex-start;}
+                align-items: flex-start;
+                margin: 20px 10px;}
+
             .greeting-txt {
                 font-size: 16px;
                 color: #fff;
@@ -276,14 +309,14 @@ export default function ProductsLandingPageMweb() {
                 background: #07101a;
                 border: 1px solid #eee;
                 border-radius: 36px;
-                padding: 24px 12px;
+                padding: 24px;
                 text-align: center;
                 margin: 5px;
             }
                 .grid-item-first {
                 grid-column: span 2;
                 }
-            .grid-btm {
+            .grid-btm{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -292,6 +325,7 @@ export default function ProductsLandingPageMweb() {
                 .product-nme {
                 font-size: 16px;
                 color: #fff;
+                text-align: left;
             }
                 .right-arr {
                 width: 16px;
@@ -302,9 +336,10 @@ export default function ProductsLandingPageMweb() {
                 .product-icon {
                 width: 48px;
                 height: 48px;
-                margin-bottom: 8px;
+                margin-bottom: 16px;
+                padding: 10px;
                 background: #001C3D;
-                border-radius: 5%;
+                border-radius: 8px;
             }
                
            
@@ -335,10 +370,11 @@ export default function ProductsLandingPageMweb() {
             .menu-item {
                 display: inline-block;
                 align-items: center;
-                padding: 12px 16px;
+                padding: 10px;
                 color: #fff;
                 // border-bottom: 1px solid #eee;
             }
+                .menu-item a {text-decoration: none; color: #fff;}
 
             .menu-ic {
             width: 22px;

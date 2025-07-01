@@ -45,7 +45,7 @@ export default function ProductsLandingPage() {
                 padding: 20px;
                 background-color: transparent;
                 color: #fff;
-                margin-top: 48px
+                margin-top: 68px
             }
             .products-lists {
                 display: flex;

@@ -55,7 +55,7 @@ export default function AddFundModal({setIsAddFundModalOpen }) {
                         <input type="search" name="search" id="search" placeholder="Search..." onChange={(e)=> handleAddFundSearch(e)} />
                     </div>
                     <div className="trending-funds-box">
-                        <h3>Trending Funds</h3>
+                        {filteredFunds.length > 0 ? "" :<h3>Trending Funds</h3>}
                         <ul className="fund-list">
                             {filteredFunds && filteredFunds.length > 0 ? (
                                 filteredFunds.map((fund, index) => (

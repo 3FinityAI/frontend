@@ -28,11 +28,11 @@ export default function LineChartModal({closeLineChart }) {
                     z-index: 1000;
                 }
                     .line-chart-modal {
-                    background: #F2F2F7;
+                    background: #010612;
                     padding: 20px;
                     border-radius: 10px;
                     width: 375px;
-                    height: 500px;
+                    height: 480px;
                     position: absolute;
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                     top: 50%;
@@ -42,10 +42,11 @@ export default function LineChartModal({closeLineChart }) {
                     }
                      .close-btn {
                     position: relative;
-                    top: -230px;
-                    left: 170px;
+                    top: -220px;
+                    left: 165px;
                     font-weight: bold;
                     font-size: 20px;
+                    color: #fff;
                     z-index: 1;
                     cursor: pointer;
                 }

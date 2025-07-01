@@ -21,10 +21,25 @@ ChartJS.register(
   Legend
 );
 
-const maxTitleLength = 35;
+const wrapText = (text, maxLineLength) => {
+  const words = text.split(' ');
+  const lines = [];
+  let currentLine = '';
 
-const truncate = (text, maxLength) => {
-  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+  for (const word of words) {
+    if ((currentLine + word).length <= maxLineLength) {
+      currentLine += word + ' ';
+    } else {
+      lines.push(currentLine.trim());
+      currentLine = word + ' ';
+    }
+  }
+
+  if (currentLine.length > 0) {
+    lines.push(currentLine.trim());
+  }
+
+  return lines;
 };
 
 const LineChart = () => {
@@ -59,13 +74,13 @@ const LineChart = () => {
         },
         title: {
           display: true,
-          text: truncate("Motilal Oswal 4-Year Return Performance Data", maxTitleLength),
+          text: wrapText("Motilal Oswal 4-Year Return Performance", 35),
           align: 'start', 
           font: {
           size: 20,
           weight: '500',
         },
-        color: '#0D0D0D',
+        color: '#fff',
         padding: {
           top: 10,
           bottom: 30,
@@ -75,15 +90,6 @@ const LineChart = () => {
         display: false,
       },
     },
-    // scales: {
-    //   y: {
-    //     title: {
-    //       display: true,
-    //       text: 'Returns (%)',
-    //     },
-    //     beginAtZero: true,
-    //   },
-    // },
     scales: {
     x: {
       grid: {
@@ -99,14 +105,17 @@ const LineChart = () => {
         font: {
           size: 18, // Y-axis label font size
         },
-        color: '#0D0D0D',
+        color: '#fff',
       },
     },
     y: {
       grid: {
         display: true,   // Hide horizontal lines
         drawBorder: false,
+        color: '#eee',
         zeroLineColor: 'transparent',
+        borderWidth: 0.1,      // Thickness of Y-axis grid lines
+        lineWidth: 0.1       // Alternative for line width (in some versions)
       },
       beginAtZero: false,
      
@@ -117,7 +126,7 @@ const LineChart = () => {
         font: {
           size: 18, // Y-axis label font size
         },
-         color: '#0D0D0D',
+         color: '#fff',
       },
       
     },

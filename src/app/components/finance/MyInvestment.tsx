@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import DoughnutChart from "./DoughnutChart";
 import AddFundModal from "./AddFundModal";
-import { RetirementResponse } from "../../../../constants"
+import { RetirementResponse, AlFundList } from "../../../../constants"
+import { it } from "node:test";
 
 export default function MyInvestment() {
 
@@ -32,137 +33,60 @@ export default function MyInvestment() {
                     <div className="investment-left">
                         <div className="total-amnt-div">
                             <p className="total-amnt-text">Total Amount</p>
-                            <h4 className="total-amnt-val">₹{RetirementResponse?.corpusAmount}</h4>
+                            <h4 className="total-amnt-val">₹{RetirementResponse?.corpusAmount ? "----" : RetirementResponse?.corpusAmount}</h4>
                         </div>
                          <div className="investment-chart">
                             {/* chart */}
                             <div style={{ width: '221px', height: '221px', margin: '30px auto' }}>
-                                <DoughnutChart chartData={RetirementResponse?.recommendedAllocation}/>
+                                {(RetirementResponse && RetirementResponse.length == 0) ? 
+                                <DoughnutChart chartData={RetirementResponse?.recommendedAllocation}/> :
+                                 <DoughnutChart chartData={""}/> }
                             </div>
                             <ul className="funds-list">
-                                {RetirementResponse?.recommendedAllocation.map((fund, index) => (
+                                {(RetirementResponse && RetirementResponse.length == 0) ? RetirementResponse?.recommendedAllocation.map((fund, index) => (
                                     <li className="funds-items" key={index}>
                                      <span className="funds-color" style={{borderLeft: `8px solid ${colors[index % colors.length]}`}}/>
                                     <p className="fund-name">{fund?.assetType}</p>
                                     <p className="fund-share">{fund?.allocationPercentage}</p>
                                 </li>
-                                ))}
-                                {/* <li className="funds-items">
-                                    <p className="fund-name">Future Income</p>
-                                    <p className="fund-share">30%</p>
-                                </li>
-                                <li className="funds-items">
-                                    <p className="fund-name">SmallCap</p>
-                                    <p className="fund-share">30%</p>
-                                </li>
-                                <li className="funds-items">
-                                    <p className="fund-name">MidCap</p>
-                                    <p className="fund-share">30%</p>
-                                </li>
-                                <li className="funds-items">
-                                    <p className="fund-name">MidCap</p>
-                                    <p className="fund-share">30%</p>
-                                </li>
-                                <li className="funds-items">
-                                    <p className="fund-name">Future Income</p>
-                                    <p className="fund-share">30%</p>
-
-                                </li> */}
+                                )): (
+                                    <div className="fund-items-emp">
+                                        Looks like you haven't added anything here yet <br/>
+                                        <a onClick={() => setIsAddFundModalOpen(true)}>Add Investments</a>
+                                    </div>
+                                )}
+                               
                             </ul>
                         </div>
                     </div>
                     <div className="investment-right">
                         <div className="investment-tp">
                             <h4 className="fund-allocation-ttl">Fund Allocation</h4>
-                            <button className="add-more-btn" onClick={() => setIsAddFundModalOpen(true)}><span className="plus-ic">+</span>Add More</button>
+                            {AlFundList.length == 0 && <button className="add-more-btn" onClick={() => setIsAddFundModalOpen(true)}><span className="plus-ic">+</span>Add More</button>}
                         </div>
                         <ul className="fund-allocation-list">
-                            
-                            <li className="fund-allocation-item">
+                            {(AlFundList && AlFundList.length == 0) ? AlFundList.slice(0, 15).map((item, index)=> (
+                                <li className="fund-allocation-item" key={index}>
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
+                                    <p className="fund-all-name">{item?.schemeName}</p>
                                     
                                 </div>
                                 <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹31,245</p>
-                                    <p className="fund-roi">ROI <span>30%</span></p>
+                                    <p className="fund-amnt">₹{item?.aum}</p>
+                                    <p className="fund-roi">ROI <span>{item?.["Average Return"]}%</span></p>
                                 </div>
                             </li>
-                            <li className="fund-allocation-item">
-                                <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
-                                    
-                                </div>
-                                <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹31,245</p>
-                                    <p className="fund-roi">ROI <span>30%</span></p>
-                                </div>
-                            </li>
-                            <li className="fund-allocation-item">
-                                <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
-                                    
-                                </div>
-                                <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹31,245</p>
-                                    <p className="fund-roi">ROI <span>30%</span></p>
-                                </div>
-                            </li>
-                            <li className="fund-allocation-item">
-                                <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
-                                    
-                                </div>
-                                <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹31,245</p>
-                                    <p className="fund-roi">ROI <span>30%</span></p>
-                                </div>
-                            </li>
-                            <li className="fund-allocation-item">
-                                <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
-                                    
-                                </div>
-                                <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹31,245</p>
-                                    <p className="fund-roi">ROI <span>30%</span></p>
-                                </div>
-                            </li>
-                            <li className="fund-allocation-item">
-                                <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
-                                    
-                                </div>
-                                <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹31,245</p>
-                                    <p className="fund-roi">ROI <span>30%</span></p>
-                                </div>
-                            </li>
-                            <li className="fund-allocation-item">
-                                <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
-                                    
-                                </div>
-                                <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹31,245</p>
-                                    <p className="fund-roi">ROI <span>30%</span></p>
-                                </div>
-                            </li>
-                            <li className="fund-allocation-item">
-                                <div className="fund-allocation-name">
-                                    <p className="fund-all-name">Motilal Oswal Midcap Fund-Direct Plan -Growth</p>
-                                    
-                                </div>
-                                <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹31,245</p>
-                                    <p className="fund-roi">ROI <span>30%</span></p>
-                                </div>
-                            </li>
+                            )): (
+                                AlFundList && AlFundList.length > 0 && <div className="investment-emp">
+                                <img src={"/images/money_bag_mob.svg"} alt="" />
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, culpa enim? Quo sapiente sunt veritatis quidem porro saepe, a nam.</p>
+                                <button className="add-more-btn" onClick={() => setIsAddFundModalOpen(true)}><span className="plus-ic">+</span>Add More</button>
+                           </div>
+                            )}
                         </ul>
                     </div>
                 </div>
             </div>
-
             <style jsx>{`
             
                 .dashboard-right {
@@ -172,6 +96,7 @@ export default function MyInvestment() {
                 overflow-y: auto;
                 
             }
+                .mob-nav-icon {display: none;}
                 
                 .breadcrumb {
                 margin-bottom: 20px;
@@ -249,6 +174,9 @@ export default function MyInvestment() {
 }
         .fund-name {font-size: 14px;color: #fff;}
         .fund-share {font-size: 14px; font-weight: bold; color: #fff;}
+        .fund-items-emp {color: #fff;}
+        .fund-items-emp a {color: #0080E8;font-size: 12px;
+    font-weight: bold;}
         `}</style>
         <style jsx>{`
         .investment-right {
@@ -316,6 +244,9 @@ export default function MyInvestment() {
         .fund-all-name, .fund-all-plan, .fund-roi {font-size: 16px;font-weight: 500;color: #fff;}
         .fund-amnt{font-size: 16px; font-weight: bold;color: #fff;}
         .fund-roi span {font-weight: bold;color: #fff;}
+        .investment-emp {display: flex; justify-content: center; flex-direction: column; align-items: center; gap: 12px; margin: 40px;}
+    .investment-emp img {width: 65px; height: 65px; padding: 10px;}
+        .investment-emp p {color: #fff;}
         `}</style>
 
         <style jsx>{`

@@ -2,9 +2,12 @@ import { useState } from "react";
 import DoughnutChart from "./DoughnutChart";
 import LineChartModal from "./LineChartModal";
 import { RetirementResponse } from "../../../../constants";
+import AddFundModal from "./AddFundModal";
+import FundModal from "./FundModal";
 
 export default function RetirementPlanningResults({}) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFundOpen, setIsFundOpen] = useState(false);
 
   const OpenLineChart = () => {
     setIsOpen(true);
@@ -26,9 +29,12 @@ export default function RetirementPlanningResults({}) {
   return (
     <>
       {isOpen && <LineChartModal closeLineChart={closeLineChart} />}
+      {isFundOpen && <FundModal setIsFundOpen={setIsFundOpen} />}
       <div className="dashboard-right">
         <div className="breadcrumb">
-          <a href="/products" className="mob-nav-icon">&lt;</a>
+          <a href="/products" className="mob-nav-icon">
+            &lt;
+          </a>
           <ul className="breadcrumb-list">
             <li className="breadcrumb-item">
               <a href="#">Finance</a>
@@ -78,17 +84,24 @@ export default function RetirementPlanningResults({}) {
                 {RetirementResponse &&
                   RetirementResponse.recommendedAllocation &&
                   RetirementResponse.recommendedAllocation.map(
-                    (fund, index) => (      
+                    (fund, index) => (
                       <li className="funds-items" key={index}>
-                        <span className="funds-color" style={{borderLeft: `8px solid ${colors[index % colors.length]}`}}/>
+                        <span
+                          className="funds-color"
+                          style={{
+                            borderLeft: `8px solid ${
+                              colors[index % colors.length]
+                            }`,
+                          }}
+                        />
                         <p className="fund-name">{fund?.assetType}</p>
                         <p className="fund-share">
-                          {fund?.allocationPercentage}   
+                          {fund?.allocationPercentage}
                         </p>
                       </li>
                     )
                   )}
-                  
+
                 {/* <li className="funds-items">
                                     <p className="fund-name">Future Income</p>
                                     <p className="fund-share">30%</p>
@@ -133,10 +146,15 @@ export default function RetirementPlanningResults({}) {
                     </p>
                   </div>
                   <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
+                    <div className="fund-all-amnt-l">
+                      <p className="fund-amnt">₹31,245</p>
+                      <p className="fund-roi">
+                        ROI <span>30%</span>
+                      </p>
+                    </div>
+                    <div className="fund-all-amnt-r">
+                      <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>+</button>
+                    </div>
                   </div>
                 </label>
                 <div className="fund-content">
@@ -167,10 +185,15 @@ export default function RetirementPlanningResults({}) {
                     </p>
                   </div>
                   <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
+                    <div className="fund-all-amnt-l">
+                      <p className="fund-amnt">₹31,245</p>
+                      <p className="fund-roi">
+                        ROI <span>30%</span>
+                      </p>
+                    </div>
+                    <div className="fund-all-amnt-r">
+                      <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>+</button>
+                    </div>
                   </div>
                 </label>
                 <div className="fund-content">
@@ -201,10 +224,15 @@ export default function RetirementPlanningResults({}) {
                     </p>
                   </div>
                   <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
+                    <div className="fund-all-amnt-l">
+                      <p className="fund-amnt">₹31,245</p>
+                      <p className="fund-roi">
+                        ROI <span>30%</span>
+                      </p>
+                    </div>
+                    <div className="fund-all-amnt-r">
+                      <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>+</button>
+                    </div>
                   </div>
                 </label>
                 <div className="fund-content">
@@ -235,10 +263,15 @@ export default function RetirementPlanningResults({}) {
                     </p>
                   </div>
                   <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
+                    <div className="fund-all-amnt-l">
+                      <p className="fund-amnt">₹31,245</p>
+                      <p className="fund-roi">
+                        ROI <span>30%</span>
+                      </p>
+                    </div>
+                    <div className="fund-all-amnt-r">
+                      <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>+</button>
+                    </div>
                   </div>
                 </label>
                 <div className="fund-content">
@@ -269,10 +302,15 @@ export default function RetirementPlanningResults({}) {
                     </p>
                   </div>
                   <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
+                    <div className="fund-all-amnt-l">
+                      <p className="fund-amnt">₹31,245</p>
+                      <p className="fund-roi">
+                        ROI <span>30%</span>
+                      </p>
+                    </div>
+                    <div className="fund-all-amnt-r">
+                      <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>+</button>
+                    </div>
                   </div>
                 </label>
                 <div className="fund-content">
@@ -303,10 +341,15 @@ export default function RetirementPlanningResults({}) {
                     </p>
                   </div>
                   <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
+                    <div className="fund-all-amnt-l">
+                      <p className="fund-amnt">₹31,245</p>
+                      <p className="fund-roi">
+                        ROI <span>30%</span>
+                      </p>
+                    </div>
+                    <div className="fund-all-amnt-r">
+                      <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>+</button>
+                    </div>
                   </div>
                 </label>
                 <div className="fund-content">
@@ -337,10 +380,15 @@ export default function RetirementPlanningResults({}) {
                     </p>
                   </div>
                   <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
+                    <div className="fund-all-amnt-l">
+                      <p className="fund-amnt">₹31,245</p>
+                      <p className="fund-roi">
+                        ROI <span>30%</span>
+                      </p>
+                    </div>
+                    <div className="fund-all-amnt-r">
+                      <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>+</button>
+                    </div>
                   </div>
                 </label>
                 <div className="fund-content">
@@ -367,7 +415,9 @@ export default function RetirementPlanningResults({}) {
           background-color: #010612;
           overflow-y: auto;
         }
-           .mob-nav-icon {display: none;}
+        .mob-nav-icon {
+          display: none;
+        }
 
         .breadcrumb {
           margin-bottom: 20px;
@@ -540,6 +590,7 @@ export default function RetirementPlanningResults({}) {
           border-radius: 8px;
           cursor: pointer;
         }
+          .fund-allo-amnt-share {display: flex; align-items: center; gap: 15px}
         .fund-amnt {
           font-size: 16px;
           font-weight: bold;
@@ -548,6 +599,14 @@ export default function RetirementPlanningResults({}) {
         .fund-roi span {
           font-weight: bold;
         }
+           .add-fund-btn {
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    padding: 5px 12px;
+                    border-radius: 100%;
+                    cursor: pointer;
+                }
 
         input[type="radio"] {
           display: none;
@@ -628,7 +687,7 @@ export default function RetirementPlanningResults({}) {
       .breadcrumb-item.bc-active {display: block;}
       .mob-nav-icon {display: block;font-size: 32px; color: #fff; margin: 36px 120px 0 0;}
       .results-bottom {margin: 0}
-      .fund-allocation-list {padding: 20px 20px 20px 35px;}
+      .fund-allocation-list {padding: 0 10px 0 35px;}
       .results-container {padding: 0;}
       .results-top {flex-direction: column; margin: 20px 0 20px 0; padding: 0; border: none;}
       .results-top-right {flex-direction: column;}
