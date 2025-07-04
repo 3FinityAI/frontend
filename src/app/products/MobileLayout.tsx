@@ -1,7 +1,6 @@
 "use client";
 import { Suspense } from "react";
 import React from "react";
-import Sidebar from "../components/common/Sidebar";
 
 export default function MobileLayout({
   children,
