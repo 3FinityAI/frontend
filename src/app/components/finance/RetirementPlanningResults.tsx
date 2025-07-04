@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DoughnutChart from "./DoughnutChart";
 import LineChartModal from "./LineChartModal";
-import { RetirementResponse } from "../../../../constants";
+import { RetirementResponse } from "../../constants/constants";
 import AddFundModal from "./AddFundModal";
 import FundModal from "./FundModal";
 

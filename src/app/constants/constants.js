@@ -103,6 +103,7 @@ export const RetirementResponse = {
 
 export const AlFundList = [
     {
+        "id": 1,
         "schemeName": "Motilal Oswal Midcap Fund - Direct Plan - Growth",
         "plan": "Direct Plan",
         "categoryName": "Mid Cap Fund",

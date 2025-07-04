@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import DoughnutChart from "./DoughnutChart";
 import AddFundModal from "./AddFundModal";
-import { RetirementResponse, AlFundList } from "../../../../constants"
-import { it } from "node:test";
+import { RetirementResponse, AlFundList } from "@/app/constants/constants"
+import { useAddFundContext } from "@/app/contexts/AddFundContext";
 
 export default function MyInvestment() {
 
+    const { fundList } = useAddFundContext();
+
     const [isAddFundModalOpen, setIsAddFundModalOpen] = useState(false);
-      const colors = [
+    const colors = [
     "#E57373", // red
     "#64B5F6", // blue
     "#81C784", // green
@@ -15,7 +17,7 @@ export default function MyInvestment() {
     "#BA68C8", // purple
     "#4DB6AC", // teal
     "#A1887F", // brown
-  ];
+    ];
     
 
     return (
@@ -38,8 +40,8 @@ export default function MyInvestment() {
                          <div className="investment-chart">
                             {/* chart */}
                             <div style={{ width: '221px', height: '221px', margin: '30px auto' }}>
-                                {(RetirementResponse && RetirementResponse.length == 0) ? 
-                                <DoughnutChart chartData={RetirementResponse?.recommendedAllocation}/> :
+                                {(fundList && fundList.length == 0) ? 
+                                <DoughnutChart chartData={fundList}/> :
                                  <DoughnutChart chartData={""}/> }
                             </div>
                             <ul className="funds-list">
@@ -62,10 +64,10 @@ export default function MyInvestment() {
                     <div className="investment-right">
                         <div className="investment-tp">
                             <h4 className="fund-allocation-ttl">Fund Allocation</h4>
-                            {AlFundList.length == 0 && <button className="add-more-btn" onClick={() => setIsAddFundModalOpen(true)}><span className="plus-ic">+</span>Add More</button>}
+                            {fundList.length > 0 && <button className="add-more-btn" onClick={() => setIsAddFundModalOpen(true)}><span className="plus-ic">+</span>Add More</button>}
                         </div>
                         <ul className="fund-allocation-list">
-                            {(AlFundList && AlFundList.length == 0) ? AlFundList.slice(0, 15).map((item, index)=> (
+                            {(fundList && fundList.length > 0) ? fundList.map((item, index)=> (
                                 <li className="fund-allocation-item" key={index}>
                                 <div className="fund-allocation-name">
                                     <p className="fund-all-name">{item?.schemeName}</p>
@@ -77,7 +79,7 @@ export default function MyInvestment() {
                                 </div>
                             </li>
                             )): (
-                                AlFundList && AlFundList.length > 0 && <div className="investment-emp">
+                                fundList && fundList.length == 0 && <div className="investment-emp">
                                 <img src={"/images/money_bag_mob.svg"} alt="" />
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, culpa enim? Quo sapiente sunt veritatis quidem porro saepe, a nam.</p>
                                 <button className="add-more-btn" onClick={() => setIsAddFundModalOpen(true)}><span className="plus-ic">+</span>Add More</button>

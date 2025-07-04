@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import FundModal from "./FundModal";
-import { AlFundList, RetirementResponse } from "../../../../constants";
+import { AlFundList, RetirementResponse } from "../../constants/constants";
 
 
 const useDebouncedValue = (value: string, delay: number) => {
@@ -19,9 +19,15 @@ const useDebouncedValue = (value: string, delay: number) => {
 
 export default function AddFundModal({setIsAddFundModalOpen }) {
     const [isFundOpen, setIsFundOpen] = useState(false);
+    const [fundToBeAdded, setIsFundToBeAdded] = useState({});
     const [searchTerm, setSearchTerm] = useState("");
     const debouncedSearchTerm = useDebouncedValue(searchTerm, 500);
     const [filteredFunds, setFilteredFunds] = useState(AlFundList);
+
+    const handleAddFund = (fund) => {
+        setIsFundToBeAdded(fund);
+        setIsFundOpen(true);
+    }
     const closeModal = ()=> {
         setIsAddFundModalOpen(false);
     }
@@ -41,13 +47,12 @@ export default function AddFundModal({setIsAddFundModalOpen }) {
         setFilteredFunds(matches);
       }
     };
-    console.log("Filtered Funds: ")
 
     fetchFiltered();
   }, [debouncedSearchTerm]);
     return (
         <>
-            {isFundOpen && <FundModal setIsFundOpen={setIsFundOpen} />}
+            {isFundOpen && <FundModal fundToBeAdded={fundToBeAdded} setIsFundOpen={setIsFundOpen} />}
             <div className="overlay">
                 <div className="add-fund-modal">
                      <span className="close-btn" onClick={closeModal}>X</span>
@@ -71,7 +76,7 @@ export default function AddFundModal({setIsAddFundModalOpen }) {
                                 <div className="fund-item-bottom">
                                     <div className="fund-name">{fund?.schemeName}</div>
                                     <div className="add-btn">
-                                        <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>Add</button>
+                                        <button className="add-fund-btn" onClick={() => handleAddFund(fund)}>Add</button>
                                     </div>
                                 </div>
                             </li>
@@ -91,7 +96,7 @@ export default function AddFundModal({setIsAddFundModalOpen }) {
                                 <div className="fund-item-bottom">
                                     <div className="fund-name">{fund?.schemeName}</div>
                                     <div className="add-btn">
-                                        <button className="add-fund-btn" onClick={() => setIsFundOpen(true)}>Add</button>
+                                        <button className="add-fund-btn" onClick={() => handleAddFund(fund)}>Add</button>
                                     </div>
                                 </div>
                             </li>

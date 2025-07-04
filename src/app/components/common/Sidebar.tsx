@@ -56,21 +56,25 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
                     className="menu-icon"
                   />
                   Future Fit
+                   <span className="arr-ind">&lt;</span>
                 </a>
                 <ul className="sub-menu-dropdown">
                   <li className="sub-menu-item">
                     <a className="sub-menu-link" href="#">
                       Future Fit 1
+                      <span className="line-left"></span>
                     </a>
                   </li>
                   <li className="sub-menu-item">
                     <a className="sub-menu-link" href="#">
                       Future Fit 2
+                      <span className="line-left"></span>
                     </a>
                   </li>
                   <li className="sub-menu-item">
                     <a className="sub-menu-link" href="#">
                       Future Fit 3
+                      <span className="line-left"></span>
                     </a>
                   </li>
                 </ul>
@@ -94,16 +98,19 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
                   <li className="sub-menu-item">
                     <a className="sub-menu-link" href="#">
                       Future Fit 1
+                      <span className="line-left"></span>
                     </a>
                   </li>
                   <li className="sub-menu-item">
                     <a className="sub-menu-link" href="#">
                       Future Fit 2
+                      <span className="line-left"></span>
                     </a>
                   </li>
                   <li className="sub-menu-item">
                     <a className="sub-menu-link" href="#">
                       Future Fit 3
+                      <span className="line-left"></span>
                     </a>
                   </li>
                 </ul>
@@ -133,6 +140,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
                       }
                       href="/products/finance/specific-goals/"
                     >
+                      <span className="line-left"></span>
                       Specific Goals
                     </a>
                   </li>
@@ -145,6 +153,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
                       }
                       href="/products/finance/"
                     >
+                      <span className="line-left"></span>
                       Retirement Planning
                     </a>
                   </li>
@@ -157,6 +166,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
                       }
                       href="/products/finance/my-investment/"
                     >
+                      <span className="line-left"></span>
                       My Investment
                     </a>
                   </li>
@@ -276,10 +286,12 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
           display: none;
           list-style: none;
           position: relative;
+          background: url("/images/line.png") repeat-y;
           background-color: transparent;
 
           padding: 10px;
-          margin-left: 20px;
+          margin: 20px;
+          height: 158px;
         }
         .menu-item.active .menu-link {
           background-color: #f6f6f6;
@@ -293,6 +305,11 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
           margin-bottom: 8px;
           padding: 10px 0;
         }
+        .line-left { width: 20px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    left: 0px;}
         .sub-menu-link:hover {
           color: #0070f3;
         }
