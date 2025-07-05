@@ -44,11 +44,11 @@ const wrapText = (text, maxLineLength) => {
 
 const LineChart = () => {
   const data = {
-    labels: ['2021', '2022', '2023', '2024'], // 4 years
+    labels: ['2021', '2022', '2023', '2024', '2025', '2026', '2021', '2022', '2023', '2024'], // 4 years
     datasets: [
       {
         // label: 'hjk',
-        data: [20, 16, 26, 35, 30], // Example returns
+        data: [20, 16, 26, 35, 30, 20, 10, 35, 30, 20, 10], // Example returns
         borderColor: '#0080E8',
         backgroundColor: 'rgba(75,192,192,0.2)',
         tension: 0.4, // smooth curve
