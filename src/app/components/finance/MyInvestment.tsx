@@ -70,16 +70,15 @@ export default function MyInvestment() {
                             {(fundList && fundList.length > 0) ? fundList.map((item, index)=> (
                                 <li className="fund-allocation-item" key={index}>
                                 <div className="fund-allocation-name">
-                                    <p className="fund-all-name">{item?.schemeName}</p>
+                                    <p className="fund-all-name">{item?.schemeName || item?.fundName}</p>
                                     
                                 </div>
                                 <div className="fund-allo-amnt-share">
-                                    <p className="fund-amnt">₹{item?.aum}</p>
+                                    <p className="fund-amnt">₹{item?.aum || item?.allocationAmount}</p>
                                     <p className="fund-roi">ROI <span>{item?.["Average Return"]}%</span></p>
                                 </div>
                             </li>
-                            )): (
-                                fundList && fundList.length == 0 && <div className="investment-emp">
+                            )): (<div className="investment-emp">
                                 <img src={"/images/money_bag_mob.svg"} alt="" />
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, culpa enim? Quo sapiente sunt veritatis quidem porro saepe, a nam.</p>
                                 <button className="add-more-btn" onClick={() => setIsAddFundModalOpen(true)}><span className="plus-ic">+</span>Add More</button>

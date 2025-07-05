@@ -3,11 +3,12 @@ import { useAddFundContext } from "@/app/contexts/AddFundContext";
 
 export default function FundModal({ fundToBeAdded, setIsFundOpen }) {
   const { fundList, addFund } = useAddFundContext();
-  
+
   const [fundData, setFundData] = useState({
     investmentAmount: "0",
     investmentDuration: "10",
   });
+  const [showSuccessMsg, setShowSuccessMsg] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -18,161 +19,205 @@ export default function FundModal({ fundToBeAdded, setIsFundOpen }) {
     });
   };
 
-
   const add = (e) => {
     e.preventDefault();
     if (!fundData) return;
     addFund(fundToBeAdded);
     setFundData({ investmentAmount: "0", investmentDuration: "0" });
+    setShowSuccessMsg(true); 
+    setTimeout(() => {
+      setShowSuccessMsg(false); 
+      setIsFundOpen(false); 
+    }, 3000);
   };
 
   const closeModal = () => {
     setIsFundOpen(false);
   };
   return (
-    <div className="overlay">
-      <div className="fund-modal">
-        <div className="fund-name">
-          <p>{fundToBeAdded?.schemeName} </p>
-          <span className="close-btn" onClick={closeModal}>
-            X
-          </span>
-        </div>
-        <div className="fund-form">
-          <div className="form-group">
-            <label htmlFor="investment-amount">Investment Amount</label>
-            <input
-              name="investmentAmount"
-              type="text"
-              id="investment-amount"
-              placeholder="Enter amount"
-              value={fundData?.investmentAmount}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="investment-duration">Years</label>
-            <input
-              type="range"
-              min={1}
-              max={70}
-              name="investmentDuration"
-              id="investment-duration"
-              value={fundData?.investmentDuration}
-              onChange={handleChange}
-            />
-            <span className="duration-value">
-              {fundData?.investmentDuration} yrs
+    <>
+      <div className="overlay">
+        <div className="fund-modal">
+          {showSuccessMsg && (
+            <div className="success-toast">Fund added successfully!</div>
+          )}
+          <div className="fund-name">
+            <p>{fundToBeAdded?.schemeName || fundToBeAdded?.fundName} </p>
+            <span className="close-btn" onClick={closeModal}>
+              X
             </span>
           </div>
-          <button className="add-fund" onClick={add}>
-            Add
-          </button>
+          <div className="fund-form">
+            <div className="form-group">
+              <label htmlFor="investment-amount">Investment Amount</label>
+              <input
+                name="investmentAmount"
+                type="text"
+                id="investment-amount"
+                placeholder="Enter amount"
+                value={fundData?.investmentAmount}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="investment-duration">Years</label>
+              <input
+                type="range"
+                min={1}
+                max={70}
+                name="investmentDuration"
+                id="investment-duration"
+                value={fundData?.investmentDuration}
+                onChange={handleChange}
+              />
+              <span className="duration-value">
+                {fundData?.investmentDuration} yrs
+              </span>
+            </div>
+            <button className="add-fund" onClick={add}>
+              Add
+            </button>
+          </div>
         </div>
-      </div>
-      <style jsx>{`
-        .overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background-color: rgba(0, 0, 0, 0.5);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 1001;
-        }
-        .fund-modal {
-          background: #0e1524;
-          padding: 20px;
-          border-radius: 10px;
-          width: 375px;
-          height: 480px;
-        }
-        .fund-name {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-          color: #fff;
-          position: relative;
-        }
-        .fund-name p {
-          width: 90%;
-        }
-        .close-btn {
-          cursor: pointer;
-          color: #fff;
-          font-weight: bold;
-          margin-left: 10px;
-          position: absolute;
-          right: 0;
-          top: -10px;
-        }
-        .fund-form {
-          display: flex;
-          flex-direction: column;
-        }
-        .form-group {
-          width: 100%;
-          margin-bottom: 15px;
-        }
-        .form-group label {
-          display: block;
-          margin-bottom: 5px;
-          font-weight: bold;
-          color: #fff;
-        }
-        .form-group input[type="text"] {
-          width: 348px;
-          color: #fff;
-          padding: 12px;
-          border: none;
-          outline: none;
-          border-radius: 4px;
-          background: rgb(23, 29, 43);
-          appearance: none;
-        }
-        .form-group input[type="range"] {
-          width: 75%;
-          padding: 8px 0;
-          //   border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-        .duration-value {
-          margin-left: 8px;
-          font-size: 14px;
-          color: #000;
-          padding: 10px 15px;
-          font-weight: bold;
-          background: #fff;
-          border-radius: 12px;
-          position: relative;
-          bottom: 25px;
-        }
-        .add-fund {
-          background-color: #007bff;
-          color: white;
-          padding: 10px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 16px;
-        }
-        .add-fund:hover {
-          background-color: #0056b3;
-        }
-        @media (max-width: 768px) {
-          .fund-modal {
-            width: 90%;
-            height: auto;
-          }
+        <style jsx>{`
           .overlay {
-            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
           }
-        }
-      `}</style>
-    </div>
+          .fund-modal {
+            background: #0e1524;
+            padding: 20px;
+            border-radius: 10px;
+            width: 375px;
+            height: 480px;
+            position: relative;
+          }
+          .fund-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+          }
+          .fund-name p {
+            width: 90%;
+          }
+          .close-btn {
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            margin-left: 10px;
+            position: absolute;
+            right: 0;
+            top: -10px;
+          }
+          .fund-form {
+            display: flex;
+            flex-direction: column;
+          }
+          .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+          }
+          .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #fff;
+          }
+          .form-group input[type="text"] {
+            width: 348px;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            background: rgb(23, 29, 43);
+            appearance: none;
+          }
+          .form-group input[type="range"] {
+            width: 75%;
+            padding: 8px 0;
+            //   border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+          .duration-value {
+            margin-left: 8px;
+            font-size: 14px;
+            color: #000;
+            padding: 10px 15px;
+            font-weight: bold;
+            background: #fff;
+            border-radius: 12px;
+            position: relative;
+            bottom: 25px;
+          }
+          .add-fund {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+          }
+          .add-fund:hover {
+            background-color: #0056b3;
+          }
+          @media (max-width: 768px) {
+            .fund-modal {
+              width: 90%;
+              height: auto;
+            }
+            .overlay {
+              padding: 20px;
+            }
+          }
+          .success-toast {
+            position: absolute;
+            top: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 1002;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadein 0.3s ease, fadeout 0.5s ease 2.5s;
+          }
+
+          @keyframes fadein {
+            from {
+              opacity: 0;
+              transform: translateY(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          @keyframes fadeout {
+            from {
+              opacity: 1;
+              transform: translateY(0);
+            }
+            to {
+              opacity: 0;
+              transform: translateY(-10px);
+            }
+          }
+        `}</style>
+      </div>
+    </>
   );
 }
