@@ -2,7 +2,7 @@
 import { Suspense } from "react";
 import React from "react";
 import AppHeaderBar from "../components/website/header";
-import Footer from "../components/website/footer";
+import Footer from "../components/common/footer";
 import { Container, Grid } from "@mui/material";
 
 export default function BlogLayout({

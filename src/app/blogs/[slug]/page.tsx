@@ -1,16 +1,8 @@
-
 "use client";
 import React from "react";
-import BlogDetail from "../../components/website/BlogDetail";
+import BlogDetail from "@/app/components/blogs/BlogDetail";
 
-function blogDetail() {
-
-    return (
-        <>
-            <BlogDetail />
-        </>
-    );
+export default function blogDetail() {
+  return <BlogDetail />;
 }
-
-export default blogDetail;
 

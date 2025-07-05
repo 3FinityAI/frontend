@@ -1,7 +1,7 @@
 "use client";
 import React, { Suspense } from "react";
-import AppHeaderBar from "./components/website/header";
-import Footer from "./components/website/footer";
+import AppHeaderBar from "@/app/components/common/header";
+import Footer from "@/app/components/common/footer";
 import { useTheme } from "@mui/material/styles";
 
 // Add children to the function parameters

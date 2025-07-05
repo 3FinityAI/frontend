@@ -15,10 +15,10 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "./header.module.scss";
-import SignupModal from "./Signup";
-import SigninModal from "./Signin";
-import ResetPasswordModal from "./ResetPassword";
-import TermsModal from "./TermsModal";
+import SignupModal from "../website/Signup";
+import SigninModal from "../website/Signin";
+import ResetPasswordModal from "../website/ResetPassword";
+import TermsModal from "../website/TermsModal";
 
 const Header: React.FC = () => {
   const theme = useTheme();
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
   // Navigation links array to avoid code duplication
   const navLinks = [
     { label: "Overview", path: "#overview" },
-    { label: "Solution", path: "#solution" },
+    { label: "Products", path: "/products" },
     { label: "Blogs", path: "/blogs" },
     { label: "About", path: "#about" },
   ];

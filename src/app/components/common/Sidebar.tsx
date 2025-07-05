@@ -192,14 +192,14 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
         .dashboard-container {
           display: flex;
           flex-direction: row;
-          background-color: #0e1524;
+          background-color: #010612;
           width: 100%;
           height: auto;
         }
         .dashboard-left {
           width: 20%;
           height: 100vh;
-          background-color: #0e1524;
+          background-color: #0E1524;
           padding: 20px;
           display: flex;
           flex-direction: column;

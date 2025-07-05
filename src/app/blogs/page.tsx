@@ -1,15 +1,7 @@
 "use client";
 import React from "react";
-import BlogListing from "../components/website/BlogListing";
+import BlogListing from "@/app/components/blogs/BlogListing";
 
-function Blogs() {
-
-    return (
-        <>
-            <BlogListing />
-        </>
-    );
+export default function Blogs() {
+  return <BlogListing />;
 }
-
-export default Blogs;
-
