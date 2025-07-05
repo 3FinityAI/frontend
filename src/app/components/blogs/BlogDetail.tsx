@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./blogdetail.module.css";
 
 export default function BlogDetail() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -26,125 +27,39 @@ export default function BlogDetail() {
   const truncated = blogData.description.slice(0, 550);
 
   return (
-    <div className="blog-detail-container">
-      <h1 className="blog-ttl">{blogData?.title}</h1>
-      <div className="blog-author-detail">
+    <div className={styles.blogDetailContainer}>
+      <h1 className={styles.blogTtl}>{blogData?.title}</h1>
+
+      <div className={styles.blogAuthorDetail}>
         <img
-          className="author-img"
+          className={styles.authorImg}
           src={blogData?.authorImageUrl}
           alt="author 1"
         />
-        <p className="author-abt">
+        <p className={styles.authorAbt}>
           <strong>{blogData?.authorName}</strong>
-          <span className="published-date">{blogData?.publishedAt}</span>
+          <span className={styles.publishedDate}>{blogData?.publishedAt}</span>
         </p>
       </div>
-      <div className="blog-detail">
-        <div className="blog-left">
-          <img className="blog-img" src={blogData?.imageUrl} alt="blog 1" />
+
+      <div className={styles.blogDetail}>
+        <div className={styles.blogLeft}>
+          <img
+            className={styles.blogImg}
+            src={blogData?.imageUrl}
+            alt="blog 1"
+          />
           <p>
             {isExpanded ? blogData.description : `${truncated}...`}
-            <span className="toggle-read" onClick={toggleExpanded}>
+            <span className={styles.toggleRead} onClick={toggleExpanded}>
               {isExpanded ? " Read Less" : " Read More"}
             </span>
           </p>
         </div>
-        <div className="blog-right">
-          <img src={"/images/scan_to_dwld.png"} alt="" />
+        <div className={styles.blogRight}>
+          <img src="/images/scan_to_dwld.png" alt="Download QR" />
         </div>
       </div>
-      <style jsx>{`
-        .blog-detail-container {
-          width: 1280px;
-          margin: 0 auto;
-
-          color: white;
-        }
-        .blog-ttl {
-          font-size: 48px;
-          font-weight: bold;
-          margin: 48px 0 24px 0;
-          line-height: 1;
-        }
-        .blog-author-detail {
-          display: flex;
-          align-items: center;
-          margin-bottom: 48px;
-        }
-        .author-img {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          margin-right: 10px;
-        }
-        .blog-author-detail .published-date {
-          position: relative;
-          margin-left: 22px;
-        }
-
-        .blog-author-detail .published-date::before {
-          content: "";
-          display: block;
-          width: 5px;
-          height: 5px;
-          border-radius: 50%;
-          background-color: #fff;
-          position: absolute;
-          left: -12px;
-          top: 10px;
-        }
-        .blog-detail {
-          display: flex;
-          justify-content: space-between;
-        }
-        .blog-left {
-          width: 787px;
-        }
-        .blog-left p {
-          text-align: justify;
-        }
-        .blog-right {
-        }
-        .blog-img {
-          width: 100%;
-          height: 388px;
-          margin-bottom: 48px;
-        }
-        .toggle-read {
-          color: #0080e8;
-          cursor: pointer;
-          font-weight: 500;
-        }
-        .toggle-read:hover {
-          text-decoration: underline;
-        }
-        @media (max-width: 768px) {
-          .blog-detail-container {
-            width: 100%;
-            padding: 8px;
-          }
-          .blog-ttl {
-            font-size: 24px;
-          }
-          .blog-detail {
-            flex-direction: column;
-          }
-          .blog-left {
-            width: 100%;
-          }
-          .blog-right {
-            margin-top: 20px;
-          }
-          .blog-right img {
-            width: 100%;
-            height: auto;
-          }
-          .blog-img {
-            width: 100%;
-            height: auto;
-          }
-        }
-      `}</style>
     </div>
   );
 }

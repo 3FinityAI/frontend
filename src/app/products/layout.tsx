@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import { headers } from "next/headers";
 import DesktopLayout from "./DesktopLayout"
 import MobileLayout from "./MobileLayout";
+import "../../../public/styles/global.css"
 
 export default function ProductLayout({ children }: { children: ReactNode }) {
   const headersList = headers();

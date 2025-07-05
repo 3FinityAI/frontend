@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAddFundContext } from "@/app/contexts/AddFundContext";
 
 export default function FundModal({ fundToBeAdded, setIsFundOpen }) {
@@ -9,6 +9,7 @@ export default function FundModal({ fundToBeAdded, setIsFundOpen }) {
     investmentDuration: "10",
   });
   const [showSuccessMsg, setShowSuccessMsg] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -31,13 +32,26 @@ export default function FundModal({ fundToBeAdded, setIsFundOpen }) {
     }, 3000);
   };
 
-  const closeModal = () => {
-    setIsFundOpen(false);
-  };
+ // Open animation on mount
+   useEffect(() => {
+     setIsVisible(true);
+   }, []);
+ 
+   // Close with animation before unmount
+   const closeModal = () => {
+     setIsVisible(false);
+     setTimeout(() => {
+       setIsFundOpen(false);
+     }, 300); // Match animation duration
+   };
   return (
     <>
       <div className="overlay">
-        <div className="fund-modal">
+        <div
+          className={`fund-modal ${
+            isVisible ? "modal-enter" : "modal-exit"
+          }`}
+        >
           {showSuccessMsg && (
             <div className="success-toast">Fund added successfully!</div>
           )}
@@ -99,6 +113,17 @@ export default function FundModal({ fundToBeAdded, setIsFundOpen }) {
             width: 375px;
             height: 480px;
             position: relative;
+          }
+            .modal-enter {
+            opacity: 1;
+            transform:  scale(1);
+            transition: all 300ms ease-in-out;
+          }
+
+          .modal-exit {
+            opacity: 0;
+            transform:  scale(0.5);
+            transition: all 300ms ease-in-out;
           }
           .fund-name {
             display: flex;
@@ -175,8 +200,8 @@ export default function FundModal({ fundToBeAdded, setIsFundOpen }) {
           }
           @media (max-width: 768px) {
             .fund-modal {
-              width: 90%;
-              height: auto;
+              width: 100%;
+              padding: 10px;
             }
             .overlay {
               padding: 20px;

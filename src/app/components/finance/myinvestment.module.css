@@ -1,0 +1,214 @@
+.investmentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-inline: 50px;
+  padding: 20px;
+  gap: 50px;
+}
+.investmentLeft {
+  width: 369px;
+  display: flex;
+  flex-direction: column;
+}
+.totalAmntDiv {
+  width: 100%;
+  padding: 12px;
+  background-color: #010612;
+  border-radius: 8px;
+}
+.totalAmntText {
+  font-size: 16px;
+  margin: 0;
+  color: #fff;
+}
+.totalAmntVal {
+  font-size: 42px;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+}
+
+.investmentChart {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 221px;
+  padding: 12px;
+}
+.fundsList {
+  width: 100%;
+  text-align: center;
+  list-style-type: none;
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.fundsItems {
+  width: auto;
+  position: relative;
+  display: inline-block;
+  padding-inline: 12px;
+  margin: 10px;
+}
+.fundsColor {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  height: 35px;
+  border-radius: 8px;
+}
+.fundName {
+  font-size: 14px;
+  color: #fff;
+}
+.fundShare {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+.fundItemsEmp {
+  color: #fff;
+}
+.fundItemsEmp a {
+  color: #0080e8;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.investmentRight {
+  flex: 1;
+  background-color: #010612;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+}
+.investmentTp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-radius: 14px 14px 0px 0px;
+  background: #171c28;
+}
+.fundAllocationTtl {
+  font-size: 18px;
+  padding: 10px 0;
+  margin: 0;
+  color: #fff;
+}
+.addMoreBtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px 10px 40px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+.plusIc {
+  content: " ";
+  position: absolute;
+  top: 21px;
+  left: 20px;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  padding: 2px;
+  transition: transform 0.3s ease;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 100%;
+  background: #fff;
+  width: 24px;
+}
+.fundAllocationList {
+  list-style-type: none;
+  padding: 20px;
+  height: 420px;
+  overflow: auto;
+}
+.fundAllocationItem {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 15px;
+  position: relative;
+}
+.fundAllocationItem::before {
+  content: " ";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  border-radius: 100%;
+  display: block;
+  width: 11px;
+  height: 11px;
+  background: #e1be55;
+}
+.fundAllocationName {
+  width: 45%;
+}
+.fundAllName,
+.fundAllPlan,
+.fundRoi {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+.fundAmnt {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+.fundRoi span {
+  font-weight: bold;
+  color: #fff;
+}
+.investmentEmp {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 40px;
+}
+.investmentEmp img {
+  width: 65px;
+  height: 65px;
+  padding: 10px;
+}
+.investmentEmp p {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 769px) {
+  .investmentContainer {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  .investmentChart {
+    height: auto;
+  }
+  .totalAmntDiv {
+    text-align: center;
+  }
+  .fundAllocationList {
+    padding: 14px;
+  }
+  .fundAllocationName {
+    width: 70%;
+  }
+  .investmentLeft {
+    width: 100%;
+  }
+  .fundsItems {
+    margin: 0 12px 12px 0;
+  }
+}
