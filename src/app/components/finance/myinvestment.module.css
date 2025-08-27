@@ -65,6 +65,11 @@
   font-size: 14px;
   color: #fff;
 }
+.editPen {
+  display: inline-block;
+  margin-left: 8px;
+  cursor: pointer;
+}
 .fundShare {
   font-size: 14px;
   font-weight: bold;

@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import DoughnutChart from "./DoughnutChart";
 import AddFundModal from "./AddFundModal";
+import FundModal from "./FundModal";
 import { RetirementResponse, AlFundList } from "@/app/constants/constants";
 import { useAddFundContext } from "@/app/contexts/AddFundContext";
 import styles from "./myinvestment.module.css";
 
 export default function MyInvestment() {
   const { fundList } = useAddFundContext();
-
+const [fundToBeAdded, setIsFundToBeAdded] = useState({});
   const [isAddFundModalOpen, setIsAddFundModalOpen] = useState(false);
+  const [isFundOpen, setIsFundOpen] = useState(false);
   const colors = [
     "#E57373", // red
     "#64B5F6", // blue
@@ -19,11 +21,20 @@ export default function MyInvestment() {
     "#A1887F", // brown
   ];
 
+  const handleEdit = (fund)=> {
+    setIsFundToBeAdded(fund);
+    setIsFundOpen(true);
+  }
+
   return (
     <>
       {isAddFundModalOpen && (
         <AddFundModal setIsAddFundModalOpen={setIsAddFundModalOpen} />
       )}
+      {isFundOpen && <FundModal
+                fundToBeAdded={fundToBeAdded}
+                setIsFundOpen={setIsFundOpen}
+              />}
       <div className="dashboard-right">
         <div className="breadcrumb">
           <a href="/products/finance" className="mob-nav-icon">
@@ -114,6 +125,7 @@ export default function MyInvestment() {
                     <div className={styles.fundAllocationName}>
                       <p className={styles.fundAllName}>
                         {item?.schemeName || item?.fundName}
+                        <img className={styles.editPen} src="/images/pencil.png" alt="" onClick={() => handleEdit(item?.schemeName)} />
                       </p>
                     </div>
                     <div>

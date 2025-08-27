@@ -126,6 +126,7 @@ export default function RetirementPlanningResults({}) {
                       type="radio"
                       name="fund-accordion"
                       id={`fund-accordion-${index}`}
+                      defaultChecked={index === 0}
                     />
                     <label
                       htmlFor={`fund-accordion-${index}`}
@@ -136,10 +137,11 @@ export default function RetirementPlanningResults({}) {
                          {fund?.fundName}
                           <span
                             className="fund-all-info"
-                            onClick={OpenLineChart}
+                            
                           >
                             i
                           </span>
+                          <img className="chart-ic" src="/images/chart.png" alt="" onClick={OpenLineChart}/>
                         </p>
                       </div>
                       <div className="fund-allo-amnt-share">
@@ -347,6 +349,8 @@ export default function RetirementPlanningResults({}) {
           border-radius: 8px;
           cursor: pointer;
         }
+          .chart-ic {display: inline-block;width: 14px; height: 14px;background: #f3f3f3;
+    margin-left: 6px;}
         .fund-allo-amnt-share {
           display: flex;
           align-items: center;
