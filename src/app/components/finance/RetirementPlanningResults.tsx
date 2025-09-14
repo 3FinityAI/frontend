@@ -1,10 +1,13 @@
 import { useState } from "react";
 import DoughnutChart from "./DoughnutChart";
 import LineChartModal from "./LineChartModal";
-import { RetirementResponse } from "../../../../constants";
+import { RetirementResponse } from "../../constants/constants";
+import FundModal from "./FundModal";
 
 export default function RetirementPlanningResults({}) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFundOpen, setIsFundOpen] = useState(false);
+  const [fundToBeAdded, setFundToBeAdded] = useState({});
 
   const OpenLineChart = () => {
     setIsOpen(true);
@@ -23,12 +26,25 @@ export default function RetirementPlanningResults({}) {
     "#A1887F", // brown
   ];
 
+  const handleAddFund = (fund) => {
+    setFundToBeAdded(fund);
+    setIsFundOpen(true);
+  }
+
   return (
     <>
       {isOpen && <LineChartModal closeLineChart={closeLineChart} />}
+      {isFundOpen && (
+        <FundModal
+          fundToBeAdded={fundToBeAdded}
+          setIsFundOpen={setIsFundOpen}
+        />
+      )}
       <div className="dashboard-right">
         <div className="breadcrumb">
-          <a href="/products" className="mob-nav-icon">&lt;</a>
+          <a href="/products" className="mob-nav-icon">
+            &lt;
+          </a>
           <ul className="breadcrumb-list">
             <li className="breadcrumb-item">
               <a href="#">Finance</a>
@@ -78,296 +94,92 @@ export default function RetirementPlanningResults({}) {
                 {RetirementResponse &&
                   RetirementResponse.recommendedAllocation &&
                   RetirementResponse.recommendedAllocation.map(
-                    (fund, index) => (      
+                    (fund, index) => (
                       <li className="funds-items" key={index}>
-                        <span className="funds-color" style={{borderLeft: `8px solid ${colors[index % colors.length]}`}}/>
+                        <span
+                          className="funds-color"
+                          style={{
+                            borderLeft: `8px solid ${
+                              colors[index % colors.length]
+                            }`,
+                          }}
+                        />
                         <p className="fund-name">{fund?.assetType}</p>
                         <p className="fund-share">
-                          {fund?.allocationPercentage}   
+                          {fund?.allocationPercentage}
                         </p>
                       </li>
                     )
                   )}
-                  
-                {/* <li className="funds-items">
-                                    <p className="fund-name">Future Income</p>
-                                    <p className="fund-share">30%</p>
-                                </li>
-                                <li className="funds-items">
-                                    <p className="fund-name">Future Income</p>
-                                    <p className="fund-share">30%</p>
-                                </li>
-                                <li className="funds-items">
-                                    <p className="fund-name">Future Income</p>
-                                    <p className="fund-share">30%</p>
-                                </li>
-                                <li className="funds-items">
-                                    <p className="fund-name">Future Income</p>
-                                    <p className="fund-share">30%</p>
-                                </li> */}
               </ul>
             </div>
           </div>
 
           <div className="results-bottom">
             <div className="fund-allocation-ttl">Fund Allocation</div>
-            {/* <h4 className="fund-allocation-ttl">Fund Allocation</h4> */}
             <ul className="fund-allocation-list">
-              <li className="fund-allocation-item">
-                <input
-                  type="radio"
-                  name="fund-accordion"
-                  id="fund-accordion1"
-                />
-                <label
-                  htmlFor="fund-accordion1"
-                  className="fund-accordion-label"
-                >
-                  <div className="fund-allocation-name">
-                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                    <p className="fund-all-plan">
-                      Direct Plan -Growth
-                      <span className="fund-all-info" onClick={OpenLineChart}>
-                        i
-                      </span>
-                    </p>
-                  </div>
-                  <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
-                  </div>
-                </label>
-                <div className="fund-content">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Molestiae nam veniam animi dolore dolorum ipsam aperiam
-                    nobis voluptatum repellat consequatur.
-                  </p>
-                </div>
-              </li>
-              <li className="fund-allocation-item">
-                <input
-                  type="radio"
-                  name="fund-accordion"
-                  id="fund-accordion2"
-                />
-                <label
-                  htmlFor="fund-accordion2"
-                  className="fund-accordion-label"
-                >
-                  <div className="fund-allocation-name">
-                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                    <p className="fund-all-plan">
-                      Direct Plan -Growth
-                      <span className="fund-all-info" onClick={OpenLineChart}>
-                        i
-                      </span>
-                    </p>
-                  </div>
-                  <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
-                  </div>
-                </label>
-                <div className="fund-content">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Molestiae nam veniam animi dolore dolorum ipsam aperiam
-                    nobis voluptatum repellat consequatur.
-                  </p>
-                </div>
-              </li>
-              <li className="fund-allocation-item">
-                <input
-                  type="radio"
-                  name="fund-accordion"
-                  id="fund-accordion3"
-                />
-                <label
-                  htmlFor="fund-accordion3"
-                  className="fund-accordion-label"
-                >
-                  <div className="fund-allocation-name">
-                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                    <p className="fund-all-plan">
-                      Direct Plan -Growth
-                      <span className="fund-all-info" onClick={OpenLineChart}>
-                        i
-                      </span>
-                    </p>
-                  </div>
-                  <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
-                  </div>
-                </label>
-                <div className="fund-content">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Molestiae nam veniam animi dolore dolorum ipsam aperiam
-                    nobis voluptatum repellat consequatur.
-                  </p>
-                </div>
-              </li>
-              <li className="fund-allocation-item">
-                <input
-                  type="radio"
-                  name="fund-accordion"
-                  id="fund-accordion4"
-                />
-                <label
-                  htmlFor="fund-accordion4"
-                  className="fund-accordion-label"
-                >
-                  <div className="fund-allocation-name">
-                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                    <p className="fund-all-plan">
-                      Direct Plan -Growth
-                      <span className="fund-all-info" onClick={OpenLineChart}>
-                        i
-                      </span>
-                    </p>
-                  </div>
-                  <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
-                  </div>
-                </label>
-                <div className="fund-content">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Molestiae nam veniam animi dolore dolorum ipsam aperiam
-                    nobis voluptatum repellat consequatur.
-                  </p>
-                </div>
-              </li>
-              <li className="fund-allocation-item">
-                <input
-                  type="radio"
-                  name="fund-accordion"
-                  id="fund-accordion5"
-                />
-                <label
-                  htmlFor="fund-accordion5"
-                  className="fund-accordion-label"
-                >
-                  <div className="fund-allocation-name">
-                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                    <p className="fund-all-plan">
-                      Direct Plan -Growth
-                      <span className="fund-all-info" onClick={OpenLineChart}>
-                        i
-                      </span>
-                    </p>
-                  </div>
-                  <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
-                  </div>
-                </label>
-                <div className="fund-content">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Molestiae nam veniam animi dolore dolorum ipsam aperiam
-                    nobis voluptatum repellat consequatur.
-                  </p>
-                </div>
-              </li>
-              <li className="fund-allocation-item">
-                <input
-                  type="radio"
-                  name="fund-accordion"
-                  id="fund-accordion6"
-                />
-                <label
-                  htmlFor="fund-accordion6"
-                  className="fund-accordion-label"
-                >
-                  <div className="fund-allocation-name">
-                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                    <p className="fund-all-plan">
-                      Direct Plan -Growth
-                      <span className="fund-all-info" onClick={OpenLineChart}>
-                        i
-                      </span>
-                    </p>
-                  </div>
-                  <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
-                  </div>
-                </label>
-                <div className="fund-content">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Molestiae nam veniam animi dolore dolorum ipsam aperiam
-                    nobis voluptatum repellat consequatur.
-                  </p>
-                </div>
-              </li>
-              <li className="fund-allocation-item">
-                <input
-                  type="radio"
-                  name="fund-accordion"
-                  id="fund-accordion7"
-                />
-                <label
-                  htmlFor="fund-accordion7"
-                  className="fund-accordion-label"
-                >
-                  <div className="fund-allocation-name">
-                    <p className="fund-all-name">Motilal Oswal Midcap Fund-</p>
-                    <p className="fund-all-plan">
-                      Direct Plan -Growth
-                      <span className="fund-all-info" onClick={OpenLineChart}>
-                        i
-                      </span>
-                    </p>
-                  </div>
-                  <div className="fund-allo-amnt-share">
-                    <p className="fund-amnt">₹31,245</p>
-                    <p className="fund-roi">
-                      ROI <span>30%</span>
-                    </p>
-                  </div>
-                </label>
-                <div className="fund-content">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Molestiae nam veniam animi dolore dolorum ipsam aperiam
-                    nobis voluptatum repellat consequatur.
-                  </p>
-                </div>
-              </li>
+              {RetirementResponse &&
+                RetirementResponse.recommendedPortfolio &&
+                RetirementResponse.recommendedPortfolio.map((fund, index) => (
+                  <li className="fund-allocation-item">
+                    <input
+                      type="radio"
+                      name="fund-accordion"
+                      id={`fund-accordion-${index}`}
+                      defaultChecked={index === 0}
+                    />
+                    <label
+                      htmlFor={`fund-accordion-${index}`}
+                      className="fund-accordion-label"
+                    >
+                      <div className="fund-allocation-name">
+                        <p className="fund-all-name">
+                         {fund?.fundName}
+                          <span
+                            className="fund-all-info"
+                            
+                          >
+                            i
+                          </span>
+                          <img className="chart-ic" src="/images/chart.png" alt="" onClick={OpenLineChart}/>
+                        </p>
+                      </div>
+                      <div className="fund-allo-amnt-share">
+                        <div className="fund-all-amnt-l">
+                          <p className="fund-amnt">₹{fund?.allocationAmount}</p>
+                          <p className="fund-roi">
+                            ROI <span>{fund?.averageReturn}%</span>
+                          </p>
+                        </div>
+                        <div className="fund-all-amnt-r">
+                          <button
+                            className="add-fund-btn"
+                            onClick={() => handleAddFund(fund)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </label>
+                    <div className="fund-content">
+                      <p>{fund?.reason}</p>
+                    </div>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
       </div>
       <style jsx>{`
-        * {
-          margin: 0;
-          padding: 0;
-        }
-
         .dashboard-right {
           width: 80%;
           height: 100vh;
           background-color: #010612;
           overflow-y: auto;
         }
-           .mob-nav-icon {display: none;}
+        .mob-nav-icon {
+          display: none;
+        }
 
         .breadcrumb {
           margin-bottom: 20px;
@@ -396,8 +208,6 @@ export default function RetirementPlanningResults({}) {
           font-size: 28px;
           font-weight: 500;
         }
-      `}</style>
-      <style jsx>{`
         .results-container {
           margin: 20px auto;
           padding: 20px;
@@ -451,7 +261,10 @@ export default function RetirementPlanningResults({}) {
           flex: 1;
           justify-content: space-around;
         }
-          .chart-wrapper {width: 221px, height: 221px}
+        .chart-wrapper {
+          width: 221px;
+          height: 221px;
+        }
         .funds-list {
           list-style-type: none;
           display: block;
@@ -462,22 +275,15 @@ export default function RetirementPlanningResults({}) {
         .funds-items {
           position: relative;
           margin-bottom: 12px;
-          padding-left: 16px
+          padding-left: 16px;
         }
-        //   .funds-items::before{content: " ";
-        //     position: absolute;
-        //     top: 10px;
-        //     left: -19px;
-        //     border-radius: 8px;display: block;
-        //     height: 30px;}
-
-            .funds-color {
-  position: absolute;
-  left: 0;
-  top: 10px;
-  height: 30px;
-  border-radius: 8px;
-}
+        .funds-color {
+          position: absolute;
+          left: 0;
+          top: 10px;
+          height: 30px;
+          border-radius: 8px;
+        }
 
         .fund-name {
           font-size: 16px;
@@ -529,6 +335,9 @@ export default function RetirementPlanningResults({}) {
           font-weight: 500;
           color: #fff;
         }
+        .fund-all-name {
+          width: 65%;
+        }
         .fund-all-info {
           font-size: 18px;
           font-weight: bold;
@@ -540,6 +349,13 @@ export default function RetirementPlanningResults({}) {
           border-radius: 8px;
           cursor: pointer;
         }
+          .chart-ic {display: inline-block;width: 14px; height: 14px;background: #f3f3f3;
+    margin-left: 6px;}
+        .fund-allo-amnt-share {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
         .fund-amnt {
           font-size: 16px;
           font-weight: bold;
@@ -548,40 +364,24 @@ export default function RetirementPlanningResults({}) {
         .fund-roi span {
           font-weight: bold;
         }
-
+        .add-fund-btn {
+          background-color: #007bff;
+          color: white;
+          border: none;
+          padding: 5px 12px;
+          border-radius: 100%;
+          cursor: pointer;
+        }
         input[type="radio"] {
           display: none;
         }
-
         .fund-accordion-label {
           display: flex;
           justify-content: space-between;
           margin: 20px 0;
           position: relative;
           width: 100%;
-          // position: absolute;
-          // top: 0;
-          // left: 0;
-          // right: 0;
-          // bottom: 0;
-          // background: rgba(255, 255, 255, 0.1);
-          // border-radius: 8px;
           cursor: pointer;
-        }
-        // .fund-accordion-label:after {
-        //     content: "+";
-        //     position: absolute;
-        //     top: 50%;
-        //     left: 50%;
-        //     transform: translate(-50%, -50%);
-        //     width: 20px;
-        //     height: 20px;
-        //     background: #E1BE55;
-        //     border-radius: 50%;
-        //     transition: background 0.3s ease;
-        // }
-        .fund-accordion-label:hover {
-          // background: rgba(255, 255, 255, 0.2);
         }
         .fund-content {
           width: 96%;
@@ -608,38 +408,83 @@ export default function RetirementPlanningResults({}) {
           font-size: 14px;
           line-height: 1.5;
         }
-        //      .fund-allocation-item::before + input[type="radio"]:checked {
-        //     content: "-";
-        //     background: #E1BE55;
-
-        // }
         .fund-content {
           display: none;
         }
         input[type="radio"]:checked + .fund-accordion-label + .fund-content {
           display: block;
         }
-      `}</style>
-      <style jsx>{`
-      @media (max-width:769px){
-      .dashboard-right {width: 100%; padding: 20px;}
-      .breadcrumb {display: flex; align-items: center;}
-      .breadcrumb-item {display: none;}
-      .breadcrumb-item.bc-active {display: block;}
-      .mob-nav-icon {display: block;font-size: 32px; color: #fff; margin: 36px 120px 0 0;}
-      .results-bottom {margin: 0}
-      .fund-allocation-list {padding: 20px 20px 20px 35px;}
-      .results-container {padding: 0;}
-      .results-top {flex-direction: column; margin: 20px 0 20px 0; padding: 0; border: none;}
-      .results-top-right {flex-direction: column;}
-      .funds-list {overflow: scroll;display: flex;flex-wrap: nowrap;gap: 8px;margin: 18px;height: auto;}
-      .fund-name{text-wrap: nowrap;}
-      .chart-wrapper {margin: 36px; auto;}
-      .future-goal {justify-content: space-around;-webkit-overflow-scrolling: touch;scrollbar-width: none; }
-      .corpus-req {display: flex;justify-content: space-between;padding: 20px;align-items: center;}
-      .corpus-ttl {font-size: 14px;}
-      .corpus-amount {font-size: 22px;}
-     
+        @media (max-width: 769px) {
+          .dashboard-right {
+            width: 100%;
+            padding: 20px;
+          }
+          .breadcrumb {
+            display: flex;
+            align-items: center;
+          }
+          .breadcrumb-item {
+            display: none;
+          }
+          .breadcrumb-item.bc-active {
+            display: block;
+          }
+          .mob-nav-icon {
+            display: block;
+            font-size: 32px;
+            color: #fff;
+            margin: 36px 120px 0 0;
+          }
+          .results-bottom {
+            margin: 0;
+          }
+          .fund-allocation-list {
+            padding: 0 10px 0 35px;
+          }
+          .results-container {
+            padding: 0;
+          }
+          .results-top {
+            flex-direction: column;
+            margin: 20px 0 20px 0;
+            padding: 0;
+            border: none;
+          }
+          .results-top-right {
+            flex-direction: column;
+          }
+          .funds-list {
+            overflow: scroll;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 8px;
+            margin: 18px;
+            height: auto;
+          }
+          .fund-name {
+            text-wrap: nowrap;
+          }
+          .chart-wrapper {
+            margin: 36px auto;
+          }
+          .future-goal {
+            justify-content: space-around;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+          }
+          .corpus-req {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+          }
+          .corpus-ttl {
+            font-size: 14px;
+          }
+          .corpus-amount {
+            font-size: 22px;
+          }
+        }
       `}</style>
     </>
   );

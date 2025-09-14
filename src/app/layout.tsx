@@ -1,17 +1,52 @@
-import React from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import MyApp from "./app";
 import "../../public/styles/global.css";
+import { AddFundContextProvider } from "@/app/contexts/AddFundContext";
 
-export const metadata = {
-  title: "3finityai",
-  description: "The Future of Smart Living",
-};
+// export const metadata = {
+//   title: "3finityai",
+//   description: "The Future of Smart Living",
+// };
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [fundList, setFundList] = useState([]);
+
+  const addFund = (fund: any) => {
+    console.log(fund, "add is called");
+    setFundList((prev) => [{id: Date.now(), ...fund }, ...prev]);
+  };
+
+  const updateFund = (id: any, fund: any) => {
+    setFundList((prev) =>
+      prev.map((prevFund) => (prevFund.id === id ? fund : prevFund))
+    );
+  };
+
+  const deleteFund = (id: any) => {
+    setFundList((prev) => prev.filter((fund) => fund.id !== id));
+  };
+
+  useEffect(() => {
+    try {
+      const storedFundList = JSON.parse(localStorage.getItem("fundList"));
+      if (Array.isArray(storedFundList) && storedFundList.length > 0) {
+        setFundList(storedFundList);
+      }
+    } catch (error) {
+      console.error("Error parsing fundList from localStorage:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("fundList", JSON.stringify(fundList));
+    console.log(fundList, "fundlist");
+  }, [fundList]);
+
   return (
     <html lang="en">
       <head>
@@ -35,7 +70,11 @@ export default function RootLayout({
         <meta name="robots" content="index, follow" />
       </head>
       <body>
-        <MyApp>{children}</MyApp>
+        <AddFundContextProvider
+          value={{ fundList, addFund, updateFund, deleteFund }}
+        >
+          <MyApp>{children}</MyApp>
+        </AddFundContextProvider>
       </body>
     </html>
   );

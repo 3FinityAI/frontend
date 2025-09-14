@@ -1,0 +1,281 @@
+.productsLandingMwebContainer {
+  padding: 16px;
+  background-color: #010612;
+  font-family: Arial, sans-serif;
+}
+
+.userNotifyContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+  align-items: center;
+}
+
+.userIconLogo,
+.notifyLogo {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  background: #001c3d;
+  border-radius: 16px;
+}
+
+.notifyLogo {
+  padding: 12px;
+}
+
+.productsTop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 10px;
+}
+
+.greetingTxt {
+  font-size: 16px;
+  color: #fff;
+}
+
+.userNme {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 5px;
+}
+
+.gridItem {
+  background: #07101a;
+  border: 1px solid #eee;
+  border-radius: 36px;
+  padding: 24px;
+  text-align: center;
+  margin: 5px;
+}
+
+.gridItemFirst {
+  grid-column: span 2;
+}
+
+.gridBtm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.productNme {
+  font-size: 16px;
+  color: #fff;
+  text-align: left;
+}
+
+.rightArr {
+  width: 16px;
+  height: 16px;
+}
+
+.productIcon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  padding: 10px;
+  background: #001c3d;
+  border-radius: 8px;
+}
+
+.menusList {
+  list-style: none;
+  padding: 8px;
+  margin: 0;
+  background: #171c28;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.menusList::-webkit-scrollbar {
+  display: none;
+}
+
+.menuItem {
+  display: inline-block;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+}
+
+.menuItem a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menuIc {
+  width: 22px;
+  height: 22px;
+  margin: 0 auto;
+}
+
+.topPerformingFundsContainer {
+  background: transparent;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  margin-top: 16px;
+}
+
+.topPerformingFundsContainer h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #fff;
+  background: #171c28;
+}
+
+.topPerformingTtl {
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.fundsList {
+  list-style: none;
+  padding: 0;
+  height: 270px;
+  overflow-y: auto;
+}
+
+.fundItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  color: #fff;
+}
+
+.fundName {
+  width: 58%;
+  font-size: 14px;
+  color: #fff;
+}
+
+.amnt {
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.roi {
+  font-size: 14px;
+  color: #34a853;
+}
+
+.fashionImgContainer {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.fashionTtl {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.imgGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.imgItem {
+  width: 158px;
+  height: 158px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.imgItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tryFitnessContainer {
+  margin-block: 70px;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.tryFitnessTtl {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.fitnessSliderWrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.fitnessSlider .slick-slide {
+  padding: 0 12px !important;
+  box-sizing: border-box;
+}
+
+.fitnessItem {
+  background: #92ccff;
+  padding: 16px;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.newFeature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.bellIcon {
+  width: 13px;
+  height: 13px;
+}
+
+.featureTxt {
+  font-weight: bold;
+  color: #fff;
+  font-size: 10px;
+  margin-left: 8px;
+}
+
+.featureDesc {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  margin-block: 18px;
+}
+
+.customizeLink {
+  width: 110px;
+  text-align: center;
+  margin-top: 8px;
+  padding: 8px 16px;
+  color: #0080e8;
+  background: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}

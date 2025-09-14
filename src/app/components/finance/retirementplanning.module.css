@@ -1,0 +1,133 @@
+.formContainer {
+  max-width: 815px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 12px;
+  background: #010612;
+  font-family: sans-serif;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 5px;
+}
+
+.fd {
+  width: 105px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: rgb(255 255 255 / 5%);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.fd:hover {
+  background: #0080e8;
+  color: white;
+}
+
+.active {
+  background: #0080e8;
+  color: white;
+}
+
+.radioGroup label {
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+.range {
+  width: 72%;
+}
+.inputText {
+  width: 85%;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background: rgb(255 255 255 / 5%);
+}
+.agfd {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.formbtm {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+.formbtm .section {
+  width: 40%;
+}
+.calculate {
+  width: 92%;
+  padding: 12px;
+  font-size: 16px;
+  margin: 20px 0;
+  background: #0080e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.calculate:hover {
+  background: #005bb5;
+}
+
+.inpres {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  background: rgb(255 255 255 / 5%);
+}
+
+@media (max-width: 769px) {
+  .formContainer {
+    padding: 0;
+    border: none;
+  }
+
+  .formbtm {
+    width: 100%;
+    flex-direction: column;
+  }
+  .formbtm .section {
+    width: 100%;
+  }
+  .range {
+    width: 82%;
+  }
+  .buttonGroup {
+    justify-content: space-between;
+  }
+  .calculate {
+    width: 100%;
+  }
+  .inputText {
+    width: 100%;
+  }
+}
